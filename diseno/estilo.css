@@ -1,0 +1,24 @@
+*{
+	font-family: sans-serif;
+	margin: 0;
+}
+#tituloBienbenida{
+	margin-top: 2em;
+	text-align: center;
+	position: relative;
+}
+.letrasAimation{
+	display: none;
+}
+@keyframes transitonPalabras{from{ color: #fff;} to{ color: #000032;} }
+@keyframes caidaPalabras0{ from{ top:  0; left: 16em;} to{ top: 16em; left: 40em;} }
+@keyframes caidaPalabras1{ from{ top:  0; left: 25em;} to{ top: 16em; left: 20em;} }
+@keyframes caidaPalabras2{ from{ top:  0; left: 30em;} to{ top: 16em; left: 1em;} }
+@keyframes caidaPalabras3{ from{ top:  0; left: 16em;} to{ top: 16em; left: 5em;} }
+@keyframes caidaPalabras4{ from{ top:  0; left: 43em;} to{ top: 16em; left: 10em;} }
+@keyframes caidaPalabras5{ from{ top:  0; left: 39em;} to{ top: 16em; left: 20;} }
+@keyframes caidaPalabras6{ from{ top:  0; left: 47em;} to{ top: 16em; left: 3em;} }
+@keyframes caidaPalabras7{ from{ top:  0; left: 37em;} to{ top: 16em; left: 37em;} }
+@keyframes caidaPalabras8{ from{ top:  0; left: 24em;} to{ top: 16em; left: 4em;} }
+@keyframes caidaPalabras9{ from{ top:  0; left: 16em;} to{ top: 16em; left: 19em;} }
+@keyframes aparecerColorFondo{ from{ background: #fff;} to{ background: #000032;} }
