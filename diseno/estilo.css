@@ -1,5 +1,5 @@
 *{
-	font-family: sans-serif;
+	font-family: sans-serif; cursor: default;
 	margin: 0; color: #fff;
 }
 #containerIndex{ display: none;} #footer{display: none;}
@@ -26,7 +26,7 @@
 
 /* ///////////////// diseño de la pagina ///////////////////////*/
 #masMe{
-	height: 100vh;
+	width: fit-content; height: 90vh;
 	display: flex; padding: 15px;
 	flex-direction: column;
 }#menu{
@@ -62,7 +62,7 @@
 #fotoPerfil{
 	width: 100px; height: 100px; border-radius: 6px;
 	margin: 20px; background: #005aa8;
-}p:hover{ cursor: default;}
+}
 /*//////////////////////// dinamica de la pagina ///////////////////*/
 @keyframes aperturaAboutMe{ from{ width: fit-content;} to{ width: 350px;} }
 @keyframes aperturaAboutMeLetraGrande{ from{ font-size: 15px;} to{ font-size: 27px;} }
@@ -74,7 +74,8 @@
 .hobbies:hover{
 	transition: all 3s; cursor: pointer;
 	transform: rotateY(360deg);
-}#TituloHobbie:hover{
+}.hobbies:active{ cursor: default; }
+#TituloHobbie:hover{
 	transition: all 3s; cursor: default;
 	transform: rotateX(360deg);
 } /* ––––––––––––––––––––––––––––cartilla Hobie ––––––––––––––––––––––––––––– */
