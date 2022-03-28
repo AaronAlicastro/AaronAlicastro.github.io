@@ -2,6 +2,7 @@ const masMe = document.querySelector("#masMe");
 const menu = document.querySelector("#menu"); var abrioMenu = true;
 const containerOpcionesAboutMe = document.querySelector("#containerOpcionesAboutMe");
 const descripcionOpcioneMe = document.querySelectorAll(".descripcionOpcioneMe");
+const opcionesMeButton = document.querySelectorAll(".opcionesMeButton");
 
 menu.addEventListener("click", (e)=>{
 	if (!abrioMenu) {
@@ -30,4 +31,10 @@ descripcionOpcioneMe[1].addEventListener("click", (e)=>{
 });
 descripcionOpcioneMe[2].addEventListener("click", (e)=>{
 	descripcionOpcioneMe[2].innerHTML += `<br><br> <b>Ups, sitio equivocado</b>`;
+});
+opcionesMeButton[2].addEventListener("click",(e)=>{
+	var sLink = "mailto:" + escape("aalicastro5@gmail.com")
+	 + "?subject=" + escape("Saludo")
+	 + "&body=" + "Hola Aaron";
+	window.location.href = sLink;
 });

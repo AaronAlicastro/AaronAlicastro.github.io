@@ -11,6 +11,9 @@ const descripcionOpcioneMe = document.querySelectorAll(".descripcionOpcioneMe");
 const hobbies = document.querySelectorAll(".hobbies");
 const containerCartillaHobies = document.querySelector("#containerCartillaHobies");
 const cerrarCartilla = document.querySelector("#cerrarCartilla");
+const containerAboutMe = document.querySelector("#containerAboutMe");
+const containerFotoPerfil = document.querySelector("#containerFotoPerfil");
+const opcionesMeButton = document.querySelectorAll(".opcionesMeButton");
 
 window.addEventListener("load", (e)=>{
 	setTimeout((e)=>{ 
@@ -55,12 +58,13 @@ window.addEventListener("load", (e)=>{
 		setTimeout((e)=>{ containerIndex.style.display = "flex";
 						containerIndex.style.flexDirection = "row";
 						containerIndex.style.justifyContent = "space-around";
-						containerIndex.style.height = "90vh";
+						containerIndex.style.flexWrap = "wrap";
 						containerIndex.style.boxSizing = "border-box";
+						containerIndex.style.overflowY = "auto";
 						footer.style.display = "flex";
 						footer.style.flexDirection = "row";
 						footer.style.justifyContent = "center";
-						footer.style.padding = "10px";
+						footer.style.paddingTop = "6em";
 		}, 5002);
 	},3000);
 });
@@ -164,4 +168,28 @@ hobbies[5].addEventListener("click", (e)=>{
 	containerCartillaHobies.style.height = "300px";
 	containerCartillaHobies.style.background = "#005aa8";
 	containerCartillaHobies.style.borderRadius = "12px";
+});
+window.addEventListener("resize",(e)=>{
+	if (body.offsetWidth < (containerAboutMe.offsetWidth+masMe.offsetWidth+containerFotoPerfil.offsetWidth)) {
+		masMe.style.order = "50";
+		containerFotoPerfil.style.order = "100"
+		containerAboutMe.style.order = "150";
+		masMe.style.height = "280px";
+	}else if(body.offsetWidth < (350+containerFotoPerfil.offsetWidth)){
+		containerFotoPerfil.style.order = "50"
+		masMe.style.order = "100";
+		containerAboutMe.style.order = "150";
+		masMe.style.height = "100%";
+	}else{
+		masMe.style.order = "50";
+		containerAboutMe.style.order = "100";
+		containerFotoPerfil.style.order = "150"
+		masMe.style.height = "100%";
+	}
+});
+opcionesMeButton[3].addEventListener("click",(e)=>{
+	var sLink = "mailto:" + escape("aalicastro5@gmail.com")
+	 + "?subject=" + escape("Saludo")
+	 + "&body=" + "Hola Aaron";
+	window.location.href = sLink;
 });

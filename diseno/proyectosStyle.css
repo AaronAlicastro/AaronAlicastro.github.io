@@ -3,11 +3,11 @@
 	margin: 0; color: #fff;
 }body{ background: #000032;}
 #containerProyectos{
-	display: flex; flex-direction: box-sizing: border-box;
-	justify-content: space-around; height: 90vh; 
+	display: flex; flex-direction: row; box-sizing: border-box; overflow-y: auto;
+	justify-content: space-around; height: 90vh;  flex-wrap: wrap;
 }
 #masMe{
-	width: 350px; height: 90vh;
+	width: 350px; margin-bottom: 30px;
 	display: flex; padding: 15px;
 	flex-direction: column; flex-shrink: 0;
 }#menu{
@@ -34,8 +34,9 @@
 	justify-content: center; padding: 10px; padding-top: 20px;
 }.contacto{ margin-left: 35px;}
 #descripcionProyectos{
-	width: 2430px; padding: 20px 100px;
-	overflow: auto;
-}#tituloProyecto{
-	text-align: center; margin-bottom: 25px;
+	overflow: auto; display: inline-block;
+	width: 500px; padding: 20px 100px;
+}#descripcionProyectos p{ font-size: 20px; }
+#tituloProyecto{
+	text-align: center; margin-bottom: 25px; font-size: 25px; margin-top: 15px;
 }
