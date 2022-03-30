@@ -17,20 +17,19 @@ menu.addEventListener("click", (e)=>{
 		containerOpcionesAboutMe.style.display = "none";
 		menu.style.animation = "cierreAboutMeLetraGrande 2s forwards";
 		masMe.style.animation = "cierreAboutMe 2s forwards";
-		descripcionOpcioneMe[0].innerHTML = `Si tienes interés en mi trabajo, tal vez quieras consultar mi hoja de vida; a solo un click.`;
-		descripcionOpcioneMe[1].innerHTML = `Si así lo deseas, puedes ver los proyectos que he hecho, desde los más recientes a los menos recientes.`;
-		descripcionOpcioneMe[2].innerHTML = `¿Quieres ver mi perfil en linkedln?, a solo un click.`;
-		descripcionOpcioneMe[3].innerHTML = `A solo un click.`;
+		descripcionOpcioneMe[0].innerHTML = `Es simplemente extraño, la satisfacci&oacuten que siento cuando te tomas el tiempo de leer.`;
+		descripcionOpcioneMe[1].innerHTML = `El bot&oacuten espera con ansias.`;
+		descripcionOpcioneMe[2].innerHTML = `A solo un click.`;
 	}
 });
 descripcionOpcioneMe[0].addEventListener("click", (e)=>{
-	descripcionOpcioneMe[0].innerHTML += `<br><br> <b>Ups, sitio equivocado</b>`;
+	descripcionOpcioneMe[0].innerHTML += `<br><br> <b>Creo que cliqueaste el el sitio incorrecto.</b>`;
 });
 descripcionOpcioneMe[1].addEventListener("click", (e)=>{
-	descripcionOpcioneMe[1].innerHTML += `<br><br> <b>Ups, sitio equivocado</b>`;
+	descripcionOpcioneMe[1].innerHTML += `<br><br> <b>Ups, sitio equivocado.</b>`;
 });
 descripcionOpcioneMe[2].addEventListener("click", (e)=>{
-	descripcionOpcioneMe[2].innerHTML += `<br><br> <b>Ups, sitio equivocado</b>`;
+	descripcionOpcioneMe[2].innerHTML += `<br><br> <b>Aqu&iacute no es.</b>`;
 });
 opcionesMeButton[2].addEventListener("click",(e)=>{
 	var sLink = "mailto:" + escape("aalicastro5@gmail.com")

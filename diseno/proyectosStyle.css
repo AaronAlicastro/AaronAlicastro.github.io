@@ -35,7 +35,7 @@
 }.contacto{ margin-left: 35px;}
 #descripcionProyectos{
 	overflow: auto; display: inline-block;
-	width: 500px; padding: 20px 100px;
+	width: 500px; padding: 20px 25px;
 }#descripcionProyectos p{ font-size: 20px; }
 #tituloProyecto{
 	text-align: center; margin-bottom: 25px; font-size: 25px; margin-top: 15px;
