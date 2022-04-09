@@ -5,11 +5,11 @@
 #containerProyectos{
 	display: flex; flex-direction: row; box-sizing: border-box; overflow-y: auto;
 	justify-content: space-around; height: 90vh;  flex-wrap: wrap;
-}
+}#infoProyecto{ color: #eef; }
 #masMe{
-	width: 350px; margin-bottom: 30px;
-	display: flex; padding: 15px;
-	flex-direction: column; flex-shrink: 0;
+	width: 380px; height: 500px; margin-bottom: 30px;
+	display: flex; padding: 15px; flex-direction: column; flex-shrink: 0;
+	overflow-y: auto; box-sizing: border-box;
 }#menu{
 	text-align: center; border-bottom: 1px dashed #fff; 
 	margin-top: 10px; font-size: 27px;
@@ -21,18 +21,20 @@
 	margin-top: 20px; padding: 8px; font-size: 20px; border-radius: 8px;
 	border: none; background: linear-gradient(to bottom, #000032, #000);
 }.descripcionOpcioneMe{
-	background: #000021; margin-left: 15px; padding: 10px; border-radius: 8px;
+	margin-left: 15px; padding: 10px; border-radius: 8px;
+	border-bottom: 1px solid #fff; border-left: 1px solid #fff;
 }
-@keyframes aperturaAboutMe{ from{ width: fit-content;} to{ width: 350px;} }
+@keyframes aperturaAboutMe{ from{ width: fit-content; height: fit-content;} to{ width: 380px; height: 500px} }
 @keyframes aperturaAboutMeLetraGrande{ from{ font-size: 15px;} to{ font-size: 27px;} }
-@keyframes cierreAboutMe{ from{ width: 350;} to{ width: fit-content;} }
+@keyframes cierreAboutMe{ from{ width: 380; height: 500px;} to{ width: fit-content; height: fit-content;} }
 @keyframes cierreAboutMeLetraGrande{ from{ font-size: 27px;} to{ font-size: 15px;} }
 .opcionesMeButton:hover{
 	background: linear-gradient(to bottom, #000032, #005aa8);
 }#footer{
-	display: flex; flex-direction: row; flex-wrap: wrap;
-	justify-content: center; padding: 10px; padding-top: 20px;
+	display: flex; flex-flow: row wrap; justify-content: center;
+	position: absolute; bottom: 0; width: 100%; height: 3em;
 }.contacto{ margin-left: 35px;}
+.contacto, .contactoB{ color: #254aff; }
 #descripcionProyectos{
 	overflow: auto; display: inline-block;
 	width: 500px; padding: 20px 25px;
