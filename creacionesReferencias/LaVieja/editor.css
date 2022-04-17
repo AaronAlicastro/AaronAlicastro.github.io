@@ -1,0 +1,108 @@
+*{
+  font-size: 10px;
+  font-family: cursive;
+  background: #000aaa;
+  color: #fff; font-size: 15px;
+}
+
+#juego{
+    display: none;
+    background: #000888; flex-direction: column;
+    width: 50%; height: fit-content;
+    margin: auto; border-radius: 30px;
+    position: relative;
+    top: 3em; padding: 20px;
+}
+
+#bienvenida{
+    display: flex; flex-direction: column;
+    background: #000888; justify-content: center;
+    width: 50%; height: 500px;
+    margin: auto; border-radius: 5px;
+    position: relative;
+    top: 10em; padding: 10px;
+}#bienvenida:hover{
+    outline: 5px solid #000888; border-radius: 18px;
+}
+
+.jugador{
+    border-style: none; outline: none;
+    border: none; margin: 8px; text-align: center;
+    border-bottom: 1px solid green;
+    background: #050; font-size: 20px;
+    font-family: Times New Roman;
+    height: 80px; border-radius: 12px;
+}#bienvenida button:focus{
+    outline: 2px solid #fff;
+}
+
+h1{
+    background: #000888;
+    text-align: center;
+    font-size: 40px;
+}
+h2{
+    background: #000888;
+    text-align: center;
+    font-size: 20px;
+}
+
+
+input::placeholder{
+    color: #aaafff; text-align: center;
+}
+input:focus{
+    box-shadow: 5px 5px 5px 1px #22b122;
+    border-bottom: 1px solid #007700;
+    transition: border-bottom 0.8s, box-shadow 5s;
+}
+
+#turno{
+    background: #000888;
+    padding-top: 8px;
+    text-align: center;
+}
+
+#contenedorGrid{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 180px 180px 180px;
+    justify-content: center;
+}
+
+.casillas{
+    display: flex; justify-content: center;
+    background: #009100; box-sizing: border-box;
+    border: 1px solid #000888;
+    padding: 30px;
+}
+
+.conImage{
+    display: flex; justify-content: center;
+    width: 100%; height: 100%;
+    object-fit: contain; background: none;
+    box-sizing: border-box;
+}
+img{
+    width: 80%; height: 100%;
+}
+
+#des{
+    display: flex; flex-direction: row;
+    background: none; justify-content: space-around;
+}#des h5{
+    border: none; font-size: 17px;
+    border-bottom: 1px solid green;
+    background: none;
+}
+#conFinalizar{
+    display: flex; flex-direction: row;
+    justify-content: center; background: none;
+}
+#finalizar{
+    background: #090; outline: none;
+    border: 1px solid #fff; padding: 10px;
+}#finalizar:hover{
+    outline: 2.5px solid #090;
+    font-size: 20px;
+}

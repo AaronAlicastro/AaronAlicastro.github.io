@@ -1,0 +1,34 @@
+.descripcionProyectosHechos{ 
+	color: #eef; text-align: left; margin-top: 15px;
+	width: 300px; height: fit-content;
+	font-size: 20px; padding: 15px;
+}.seccionesVA{
+	margin: 30px 10px;
+	justify-content: space-around; width: 100%;
+}
+.imgVisionArmonica0{ width: 42px; height: 42px; }
+.imgVisionArmonica1{ width: 300px; margin: 10px; }
+.imgVisionArmonica2{ width: 300px; margin: 10px; }
+.imgVisionArmonica3{ width: 600px; }
+a{ font-style: none; text-decoration: none; }
+
+@media (max-width: 600px){
+	#ContainerVisionArmonica{
+		box-sizing: 500px;
+	}
+	.descripcionProyectosHechos{
+		width: fit-content; box-sizing: border-box;
+		margin-left: 30px;
+	}
+	.imgVisionArmonica0{ width: 42px; height: 42px; }
+	.imgVisionArmonica1{ width: 200px; margin: 10px; }
+	.imgVisionArmonica2{ width: 200px; margin: 10px; }
+	.imgVisionArmonica3{ width: 300px; }
+}@media (max-width: 450px){
+	#ContainerVisionArmonica{
+		box-sizing: 400px;
+	}
+	.descripcionProyectosHechos{
+		max-width: 300px;
+	}
+}

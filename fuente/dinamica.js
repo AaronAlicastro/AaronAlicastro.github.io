@@ -1,3 +1,4 @@
+"use strict";
 const letrasAimation = document.querySelectorAll(".letrasAimation");
 const tituloBienbenida = document.querySelector("#tituloBienbenida");
 const body = document.querySelector("#body");
@@ -75,24 +76,18 @@ window.addEventListener("load", (e)=>{
 		}, 5002);
 	},3000);
 });
-//////////////////////////// funciones /////////////////////////////////////
+//////////////////////////// eventos de funciones /////////////////////////////////////
 menu.addEventListener("click", (e)=>{
 	abrirCerrarMenu();
 });
-descripcionOpcioneMe[0].addEventListener("click", (e)=>{
-	errorOpcionMenu(descripcionOpcioneMe[0], "<br><br> <b>Ups, sitio equivocado.</b>");
-});
-descripcionOpcioneMe[1].addEventListener("click", (e)=>{
-	errorOpcionMenu(descripcionOpcioneMe[1], "<br><br> <b>S&iacute, a veces uno se equivoca.</b>");
-});
-descripcionOpcioneMe[2].addEventListener("click", (e)=>{
-	errorOpcionMenu(descripcionOpcioneMe[2], "<br><br> <b>Creo que hubo un peque&ntildeo desv&iacuteo.</b>");
-});
-descripcionOpcioneMe[3].addEventListener("click", (e)=>{
-	errorOpcionMenu(descripcionOpcioneMe[3], "<br><br> <b>Dudo que ocurra algo.</b>");
-});
-cerrarCartilla.addEventListener("click", (e)=>{
+cerrarCartilla.addEventListener("click",e=>{
 	containerCartillaHobies.style.display = "none";
+});
+descripcionOpcioneMe.forEach((element,i)=>{
+	if(i == 0) element.addEventListener("click",e=>{ errorOpcionMenu(element, `<br><br> <b>Dudo que ocurra algo.</b>`)});
+	else if (i == 1) element.addEventListener("click",e=>{ errorOpcionMenu(element, `<br><br> <b>Ups, sitio equivocado.</b>`)});
+	else if(i == 2) element.addEventListener("click",e=>{ errorOpcionMenu(element, `<br><br> <b>S&iacute, a veces uno se equivoca.</b>`)});
+	else if(i == 3) element.addEventListener("click",e=>{ errorOpcionMenu(element, `<br><br> <b>Creo que hubo un peque&ntildeo desv&iacuteo.</b>`)});
 });
 //––––––––––––––––––––––– movimiento del conocimiento ––––––––––––––––––––––––– //
 var propagacionCo = true;

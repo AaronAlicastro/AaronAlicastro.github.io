@@ -6,17 +6,33 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Alicastro-proyectos</title>
 	<link rel="stylesheet" type="text/css" href="diseno/proyectosStyle.css">
+	<link rel="stylesheet" type="text/css" href="diseno/VisionArmonicaStyle.css">
+	<link rel="stylesheet" type="text/css" href="diseno/laviejaStyle.css">
+	<link rel="stylesheet" type="text/css" href="diseno/kurtStyle.css">
 </head>
 
-<body>
+<body id="body">
 	<div id="containerProyectos">
 		<nav id="masMe">
 			<h6 id="menu">Mucho m&aacutes</h6>
 			<div id="containerOpcionesAboutMe">
-				<button class="opcionesMeButton">Proyectos</button>
-				<p class="descripcionOpcioneMe">
-					pro
-				</p>
+				<!--–––––––––––––––––––––– apartado proyectos –––––––––––––––––––––––––––––-->
+				<button class="opcionesMeButton" id="buttonProyectos">
+					<div class="esparcir">Proyectos</div>
+					<div class="esparcir">
+						<img src="https://drive.google.com/uc?export=view&id=1OKBhTDU59MkuyaH0p6bJ8wQWaseynhgG" alt="^" id="isSelected">
+					<div>
+				</button> 
+				<div class="descripcionOpcioneMe" id="seccionProject">
+					<button class="proyectos">SaveAtable</button>
+					<button class="proyectos">Calculadora-conversor</button>
+					<button class="proyectos">To do list</button>
+					<button class="proyectos">Kurt</button>
+					<button class="proyectos">La vieja</button>
+					<button class="proyectos" id="noAkmii">Akmii</button>
+					<button class="proyectos">Visi&oacuten arm&oacutenica</button>
+				</div>
+				<!--––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––-->
 				<a class="opcionesMe" href="https://drive.google.com/file/d/1sEmI8x65CPtHz7CS2ZOJO_wHEGmzeesg/view?usp=sharing" target="_BLANK"> <button class="opcionesMeButton">Hoja de vida</button></a>
 				<p class="descripcionOpcioneMe">
 					Una hoja de vida, el seguimiento de una trayectoria.
@@ -31,7 +47,7 @@
 				</p>
 			</div>
 		</nav>
-		<div id="descripcionProyectos">
+		<div id="containerDescripcionProyectos">
 			<h1 id="tituloProyecto">Un trabajo, visto como un proyecto realizado</h1>
 			<p id="infoProyecto">
 				Un proyecto, "etimol&oacutegicamente tiene referencia del lat&iacuten como 'proiectus', conformado por el prefijo 'pro' (hacia delante o hacia futuro) y el participio iacere, al respecto de iactus (por tirar o lanzar), siendo pues, su significado lanzamiento hacia delante, hacia el futuro"; de este modo, mi proyecci&oacuten laboral podr&aacute ser presenciada desde la barra lateral izquierda. Quiera Dios y sea vuestra disposici&oacuten de gusto hacia mi trabajo.
@@ -44,6 +60,12 @@
 	</footer>
 
 	<script type="text/javascript" src="fuente/proyectosDinamica.js"></script>
+	<script type="text/javascript" src="fuente/VisionArmonica.js"></script>
+	<script type="text/javascript" src="fuente/laVieja.js"></script>
+	<script type="text/javascript" src="fuente/kurt.js"></script>
+	<script type="text/javascript" src="fuente/toDoList.js"></script>
+	<script type="text/javascript" src="fuente/calculadora.js"></script>
+	<script type="text/javascript" src="fuente/saveAtable.js"></script>
 </body>
 
 </html>
