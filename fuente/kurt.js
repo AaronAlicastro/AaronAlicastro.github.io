@@ -62,10 +62,25 @@ proyectos[proyectos.length - 4].addEventListener("click",e=>{ // creacion de eti
 			pElementsKurt[0].classList.add("descripcionProyectosHechos");
 			pElementsKurt[0].setAttribute("id","pKurt");
 			pElementsKurt[0].classList.add("pCompleto");
+		for(let i = 0; i < 7; i++){
+			imgElementsKurt[i] = document.createElement("IMG"); imgElementsKurt[0].setAttribute("alt","Man");
+			imgElementsKurt[i].classList.add("imgPersona");
+		}
+		imgElementsKurt[0].setAttribute("src","https://drive.google.com/uc?export=view&id=1x6_YjjkuqpXs3SR6Q367Fe8z0NOqPQmF");//cami 1
+		imgElementsKurt[0].style.display = "none";
+		imgElementsKurt[1].setAttribute("src","https://drive.google.com/uc?export=view&id=12WAVJNFZ9cP2f5ue1TJj7NlXo_PNV-sx");//cami 2
+		imgElementsKurt[1].style.display = "none";
+		imgElementsKurt[2].setAttribute("src","https://drive.google.com/uc?export=view&id=1jSHFmHYEnOOnfgKzBycvzDndrs4xeOgX");//cami 3
+		imgElementsKurt[2].style.display = "none";
+		imgElementsKurt[3].setAttribute("src","https://drive.google.com/uc?export=view&id=1_259aAHDmgPjwE9tJec-zOLwXZ4EldLj");//cami 4
+		imgElementsKurt[3].style.display = "none";
+		imgElementsKurt[4].setAttribute("src","https://drive.google.com/uc?export=view&id=1H425Yb0eK98jXPAvwQ33Nk6CojJLzfFY");// salto 1
+		imgElementsKurt[4].style.display = "none";
+		imgElementsKurt[5].setAttribute("src","https://drive.google.com/uc?export=view&id=1-y7iceuGN7dHtNhxDwLqYPqwtAF7ltwX");// salto 2
+		imgElementsKurt[5].style.display = "none";
+		imgElementsKurt[6].setAttribute("src","https://drive.google.com/uc?export=view&id=1DI9ihppQd5vOk_rCH4Pl-d_LOZUUT6sY");// estatico
+		imgElementsKurt[6].style.display = "block";
 
-			imgElementsKurt[0] = document.createElement("IMG"); imgElementsKurt[0].setAttribute("alt","Man");
-			imgElementsKurt[0].setAttribute("id","imgPersonaMove");
-			imgElementsKurt[0].setAttribute("src","https://drive.google.com/uc?export=view&id=1DI9ihppQd5vOk_rCH4Pl-d_LOZUUT6sY");
 		//––––––––––––––––––––––––––––––––––– Relleno –––––––––––––––––––––––––––––––––––––––//
 		pestanasProyectosAbiertas[3].style.display = "flex";
 		pestanasProyectosAbiertas[3].style.flexDirection = "column";
@@ -89,6 +104,13 @@ proyectos[proyectos.length - 4].addEventListener("click",e=>{ // creacion de eti
 		divElementsKurt[2].appendChild(pElementsKurt[0]);
 			pestanasProyectosAbiertas[3].appendChild(divElementsKurt[2]);
 		divElementsKurt[0].appendChild(imgElementsKurt[0]);
+		divElementsKurt[0].appendChild(imgElementsKurt[1]);
+		divElementsKurt[0].appendChild(imgElementsKurt[2]);
+		divElementsKurt[0].appendChild(imgElementsKurt[3]);
+		divElementsKurt[0].appendChild(imgElementsKurt[4]);
+		divElementsKurt[0].appendChild(imgElementsKurt[5]);
+		divElementsKurt[0].appendChild(imgElementsKurt[6]);
+
 		divElementsKurt[0].style.borderBottom = "2px solid #fff";
 		divElementsKurt[3].appendChild(divElementsKurt[0]);
 		divElementsKurt[3].appendChild(divElementsKurt[4]);
@@ -101,7 +123,7 @@ proyectos[proyectos.length - 4].addEventListener("click",e=>{ // creacion de eti
 		containerProyectos.appendChild(pestanaKurt);
 		pestanasProyectosAbiertas[3] = document.querySelector("#kurtIsReady");
 		divElementsKurt[0] = document.querySelector("#jugadorMove");
-		imgElementsKurt[0] = document.querySelector("#imgPersonaMove");
+		imgElementsKurt = document.querySelectorAll(".imgPersona");
 		pElementsKurt[0] = document.querySelector("#pKurt");
 		aLinkkurt = document.querySelector("#linkKurt");
 		trozos = document.querySelectorAll(".trozos");
@@ -155,7 +177,7 @@ window.addEventListener("keydown",e=>{
 });
 window.addEventListener("keyup",e=>{
 	if (!efectuoSalto) {
-		if (encendioKurt) setTimeout(e=>{ imgElementsKurt[0].setAttribute("src","https://drive.google.com/uc?export=view&id=1DI9ihppQd5vOk_rCH4Pl-d_LOZUUT6sY")},1000);
+		if (encendioKurt) setTimeout(e=>{ nonearFotos(6); },200);
 	}
 });
 
@@ -169,32 +191,38 @@ function obtenerPositionActual(condicion1,condicion2,direccion) {
 		positionActualJugador = divElementsKurt[0].offsetLeft;
 	}
 }
+function nonearFotos(index) {
+	imgElementsKurt.forEach((ele,i)=>{
+		if(i != index) ele.style.display = "none";
+		else ele.style.display = "block";
+	});
+}
 function corriendoDerecha(){
 	if (!efectuoSalto) {
 		if (enRecorrido) {
 			enRecorrido = false;
-			setTimeout(e=>{ imgElementsKurt[0].setAttribute("src","https://drive.google.com/uc?export=view&id=1x6_YjjkuqpXs3SR6Q367Fe8z0NOqPQmF")},200);
+			setTimeout(e=>{ nonearFotos(0); },200);
 		}else{
 			enRecorrido = true;
-			setTimeout(e=>{ imgElementsKurt[0].setAttribute("src","https://drive.google.com/uc?export=view&id=12WAVJNFZ9cP2f5ue1TJj7NlXo_PNV-sx")},200);
+			setTimeout(e=>{ nonearFotos(1); },200);
 		}
 	}
 }function corriendoIzquierda(){
 	if (!efectuoSalto) {
 		if (enRecorrido) {
 			enRecorrido = false;
-			setTimeout(e=>{ imgElementsKurt[0].setAttribute("src","https://drive.google.com/uc?export=view&id=1jSHFmHYEnOOnfgKzBycvzDndrs4xeOgX")},200);
+			setTimeout(e=>{ nonearFotos(2); },200);
 		}else{
 			enRecorrido = true;
-			setTimeout(e=>{ imgElementsKurt[0].setAttribute("src","https://drive.google.com/uc?export=view&id=1_259aAHDmgPjwE9tJec-zOLwXZ4EldLj")},200);
+			setTimeout(e=>{ nonearFotos(3); },200);
 		}
 	}
 }
 var salto = 0, efectuoSalto, conteoSalto = 0;
 function saltoElMan(){
 	if (!efectuoSalto) {
-		if (moveRight != 0) {
-			imgElementsKurt[0].setAttribute("src","https://drive.google.com/uc?export=view&id=1H425Yb0eK98jXPAvwQ33Nk6CojJLzfFY");
+		if (moveRight != 0) { 
+			nonearFotos(4);
 			efectuoSalto = true;
 			topActualJugador = divElementsKurt[0].offsetTop;
 			conteoSalto = 0;
@@ -205,13 +233,12 @@ function saltoElMan(){
 				
 				if (conteoSalto == 80){
 					clearInterval(salto);
-					efectuoSalto = false;
-					imgElementsKurt[0].setAttribute("src","https://drive.google.com/uc?export=view&id=1DI9ihppQd5vOk_rCH4Pl-d_LOZUUT6sY");
+					efectuoSalto = false; nonearFotos(6);
 					movimientoCaidaLibre();
 				}
 			},1/80);
-		}else if (moveLeft != 0) {
-			imgElementsKurt[0].setAttribute("src","https://drive.google.com/uc?export=view&id=1-y7iceuGN7dHtNhxDwLqYPqwtAF7ltwX");
+		}else if (moveLeft != 0) { 
+			nonearFotos(5);
 			efectuoSalto = true;
 			topActualJugador = divElementsKurt[0].offsetTop;
 			conteoSalto = 0;
@@ -222,8 +249,7 @@ function saltoElMan(){
 				
 				if (conteoSalto == 80){
 					clearInterval(salto);
-					efectuoSalto = false;
-					imgElementsKurt[0].setAttribute("src","https://drive.google.com/uc?export=view&id=1DI9ihppQd5vOk_rCH4Pl-d_LOZUUT6sY");
+					efectuoSalto = false; nonearFotos(6);
 					movimientoCaidaLibre();
 				}
 			},1/80);

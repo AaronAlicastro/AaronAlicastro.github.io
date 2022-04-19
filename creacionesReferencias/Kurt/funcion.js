@@ -50,12 +50,47 @@ function movimientoBolaBienvenida(altoC, altoF, posicionY, aleatorio){
     }
 }
 
-bComenzar.addEventListener("click", (e)=>{
-    clearInterval(cicloBolaFuego[0]); cicloBolaFuego[1]=0;
-    fuegoBienvenida[2].style.top= posicionYBienvenida+"px";
-    
-    aparecerDesaparecerLevel();
+document.querySelector("#BestPlayer").addEventListener("click",e=>{
+    cuadroBienvenida.style.display = "none";
+    document.querySelector("#mejorJugador").style.display = "flex";
+    let namePlayer = localStorage.getItem("namePlayer");
+    let levelPlayer = localStorage.getItem("levelPlayer");
+    if (namePlayer != null) {
+        document.querySelector("#elMejor").innerHTML = namePlayer;
+        document.querySelector("#desElMejor").value = `
+            Ha alcanzado el nivel ${levelPlayer}
+        `;
+    }
 });
+document.querySelector("#volverInicio").addEventListener("click",e=>{
+    cuadroBienvenida.style.display = "flex";
+    document.querySelector("#mejorJugador").style.display = "none";
+});
+bComenzar.addEventListener("click", (e)=>{
+    nombreJ = document.querySelector("#namePlayer").value;
+    document.querySelector("#namePlayer").value = "";
+    if (nombreJ.trim() != "") {
+
+        clearInterval(cicloBolaFuego[0]); cicloBolaFuego[1]=0;
+        fuegoBienvenida[2].style.top= posicionYBienvenida+"px";
+        
+        aparecerDesaparecerLevel();
+    }else alert("Debes ingresar tu nmbre");
+});
+function bestPlayer(){
+    let namePlayer = localStorage.getItem("namePlayer");
+    let levelPlayer = localStorage.getItem("levelPlayer");
+
+    if (namePlayer != null) {
+        if (levelPlayer < level) {
+            localStorage.setItem("namePlayer",nombreJ);
+            localStorage.setItem("levelPlayer",level);
+        }
+    }else{
+        localStorage.setItem("namePlayer",nombreJ);
+        localStorage.setItem("levelPlayer",level);
+    }
+}var nombreJ;
 
 const juegoContainer= document.getElementById("juegoContainer");
 const juego= document.getElementById("juego");
@@ -370,6 +405,7 @@ function destruirBlockOver(){
 
 
 function levels(){
+    bestPlayer();
     altoJuego= juego.offsetHeight; anchoJuego= juego.offsetWidth;
     setTimeout((e)=>{ alert("nivel "+level);}, 300);
     blockSave0Estatico();
@@ -667,8 +703,7 @@ function moveDisparo(){
         destruirBlockOver();
         
         if(b>=(juego.offsetWidth + 10)){
-            clearInterval(cicloDisparo);
-            destruir(numbMoveDisparo);
+            clearInterval(cicloDisparo[numbMoveDisparo]);
         }
     }, 1/500);
 }

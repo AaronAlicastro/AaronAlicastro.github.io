@@ -8,7 +8,7 @@
     background: #543211;
 }
 #bienvenida{
-    
+
 }
 #pestanaLevel{
     display: none;
@@ -40,6 +40,18 @@ img{
     width: 70%; height: 400px;
     border: 8px solid #000;
     margin: auto; margin-top: 15em;
+}#mejorJugador{
+    display: none;
+    flex-flow: column wrap; border-radius: 12px;
+    justify-content: space-around; margin: auto;
+    padding: 20px; background: #821211; margin-top: 15em;
+    width: 300px; height: 300px;
+}#mejorJugador h1{
+    text-align: center; font-size: 25px; color: #fff;
+}#mejorJugador textarea{
+    resize: none; flex-grow: 100; margin: 15px 0; padding: 15px; font-size: 20px; background: #aaa;
+}#mejorJugador button{
+    font-size: 15px; padding: 15px 0;
 }
 
 #tituloKurt{
@@ -66,12 +78,20 @@ img{
     display: flex; flex-direction: column; 
     justify-content: center; flex-grow: 100;
 }#containerBcomenzar{
-    display: flex; justify-content: center;
+    display: flex; justify-content: space-evenly;
 }#bComenzar{
+    width: 150px; height: 50px; margin-right: 15px;
+    background: #aaa; color: #000;
+    font-size: 15px; font-family: Times New Roman;
+}#BestPlayer{
     width: 150px; height: 50px;
     background: #aaa; color: #000;
     font-size: 15px; font-family: Times New Roman;
-}
+}#namePlayer{
+    width: 150px; height: 50px; text-align: center; outline: none;
+    background: #aaa; color: #000;
+    font-size: 15px; font-family: Times New Roman;
+}#namePlayer::placeholder{ text-align: center; color: #000; }
 
 
 

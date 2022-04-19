@@ -68,10 +68,9 @@ window.addEventListener("load", (e)=>{
 						footer.style.display = "flex";
 						footer.style.flow = "row wrap";
 						footer.style.justifyContent = "center";
-						footer.style.position = "absolute";
-						footer.style.bottom = "0";
 						footer.style.width = "100%";
 						footer.style.height = "3em";
+
 						responsive();
 		}, 5002);
 	},3000);
