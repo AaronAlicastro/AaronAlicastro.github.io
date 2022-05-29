@@ -1,4 +1,8 @@
-.memoriaColumnas{
+body{ background: #000032; color: #fff; }
+.seccionesVA{
+	margin: 30px 10px;
+	justify-content: space-around; width: 100%;
+}.memoriaColumnas{
 	display: inline-block;
 	width: fit-content;
 }.memoriaElements{
@@ -8,17 +12,22 @@
 	width: 130px; height: 130px; background: #30eda5;
 	padding: 20px; margin: 10px; border-radius: 13px;
 	font-size: 20px; font-weight: bold; box-sizing: border-box;
-}.seccionMemoria{
+}#seccionMemoria{
+    justify-content: "space-around";
+    width: "100%"; box-sizing: "border-box";
+}.row-wrap{ display: flex; flex-flow: row wrap; }
+.column-wrap{ display: flex; flex-flow: column wrap; }
+.seccionMemoria{
 	width: fit-content;
-}#laViejaIsReady{
-	width: 70%;
 }.tapaMemoria{
 	position: absolute; width: 130px; height: 130px;
 	left: 0; top: 0; border-radius: 13px; 
-	borderRadius: 13px; background: #30ae45;
+	border-radius: 13px; background: #30ae45;
 }.tapaMemoria:hover{
-	cursor: pointer; outline: 5px solid #30ae45;
-}
+	cursor: pointer; transform: scale(1.1);
+}.memoriaP{
+    position: relative;
+}.primerP{ font-size: 20px; }
 #containerNuevosMemoria{
 	display: flex; flex-direction: column;
 	justify-content: center;
@@ -33,12 +42,8 @@
 	display: none;
 }.textoCentrado{ text-align: center; }
 
-@media (max-width: 930px){
-	#laViejaIsReady{
-		width: 100%;
-	}
-}@media (max-width: 630px){
+@media (max-width: 630px){
 	.innerMemoria{
-		margin-right: 70px;
+		margin-right: 0;
 	}
 }
