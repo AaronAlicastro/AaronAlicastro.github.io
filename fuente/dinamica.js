@@ -28,6 +28,15 @@ pe("f").ft(()=>pe("f").ca(...pe(".nav",0)),"event","click",e=>{
 },"event","mouseleave",e=>{
     e.target.style.textDecoration = "none";
 });
+pe("a").ft(()=>pe("a").ca(...pe(".nav",0)),"color","transparent");
+pe("f").ft(()=>pe("f").ca(...pe(".conocimientosIMG",0)),"event","mouseover",e=>{
+    e.target.style.transition = "all 1.5s";
+    e.target.style.transform = "rotate(-45deg)";
+},"event","mouseleave",e=>{
+    setTimeout(e2=>{
+        e.target.style.transform = "rotate(45deg)";
+    },1400);
+});
 pe("f").ft(()=>pe("f").ca(...pe(".blogs",0)),"event","click",e=>{
     pe("#desaparecer").f("display","none");
     pe("#masInfoHobbby").f("display","flex");
