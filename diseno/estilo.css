@@ -54,10 +54,15 @@
 #containerAbout{
 	display: flex; flex-flow: row wrap;
 	width: 100%; height: fit-content;
-}#containerAbout div:nth-child(1){
+}#me{
 	display: flex; flex-flow: row wrap; width: 40%; min-width: 320px; 
-	padding: 85px 10px; box-sizing: border-box;
-}#containerAbout div:nth-child(1) img{ width: 100%; border-radius: 20px; }
+	padding: 85px 30px; box-sizing: border-box; height: fit-content;
+}#me div{
+	width: 90%; max-height: 500px;
+}#me div img{
+	border-radius: 20px; width: 100%; height: 100%; object-fit: cover;
+	object-position: 0 -125px;
+}
 #containerAbout div:nth-child(2){
 	display: flex; flex-flow: column wrap; justify-content: center; width: 60%;
 	padding: 0 20px; box-sizing: border-box;

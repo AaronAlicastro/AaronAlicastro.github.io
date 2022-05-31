@@ -53,12 +53,12 @@ function pe(identificador,index,fin) {
 					}
 				});
 			});
-		}else if(fin && (fin + index) <= elemento.length){
-			for(let i = index; i <= (fin + index); i++){
-				elemento2.push({
-					e: elemento[i],
+		}else if((fin + index) <= elemento.length){
+			if(fin == 0){
+				elemento2 = {
+					e: elemento[index],
 					m: (id,fun,atri)=>{ abuelo.m(id,fun,atri); },
-					f: (id,value,fun)=>{ abuelo.f(id,elemento[i],value,fun); },
+					f: (id,value,fun)=>{ abuelo.f(id,elemento[index],value,fun); },
 					ca: (...parientes)=>{ return parientes; },
 					ft: (funParientes, ...estilos)=>{
 						let parientesStyles = funParientes();
@@ -93,7 +93,49 @@ function pe(identificador,index,fin) {
 							}
 						}
 					}
-				});
+				};
+			}else{
+				for(let i = index; i <= (fin + index); i++){
+					elemento2.push({
+						e: elemento[i],
+						m: (id,fun,atri)=>{ abuelo.m(id,fun,atri); },
+						f: (id,value,fun)=>{ abuelo.f(id,elemento[i],value,fun); },
+						ca: (...parientes)=>{ return parientes; },
+						ft: (funParientes, ...estilos)=>{
+							let parientesStyles = funParientes();
+							for(let i = 0; i < estilos.length; i++){
+								if (typeof estilos[i] == "string" && estilos[i].includes(",")) {
+									estilos[i] = estilos[i].split(",");
+									for(let j = 0; j < estilos[i].length; j++){
+										if (estilos[i][j] == "event" || estilos[i][j] == "atributo"){
+											if (estilos[i][j] == "atributo") {
+												parientesStyles.forEach(ele=>{
+													ele.f(estilos[i][j],estilos[i][j+1],estilos[i][j+2]);
+												}); j += 2;
+											}else{
+												parientesStyles.forEach(ele=>{
+													ele.f(estilos[i][j],estilos[i][j+1],estilos[i+1]);
+												}); j += 1; i += 1;
+											}
+										}else{
+											parientesStyles.forEach(ele=>{
+												ele.f(estilos[i][j],estilos[i][j+1]);
+											}); j += 1;
+										}
+									}
+								}else if (estilos[i] == "event" || estilos[i] == "atributo") {
+									parientesStyles.forEach(ele=>{
+										ele.f(estilos[i],estilos[i+1],estilos[i+2]);
+									}); i += 2;
+								}else{
+									parientesStyles.forEach(ele=>{
+										ele.f(estilos[i],estilos[i+1]);
+									}); i += 1;
+								}
+							}
+						}
+					});
+				}
 			}
 		}else{
 			for(let i = 0; i < index; i++){
