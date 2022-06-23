@@ -67,3 +67,9 @@ pe("#sent-email").f("event", "click", e => {
         pe("#errorLlenar").f("display", "block");
     }
 });
+window.addEventListener("load", e => {
+    pe("#heightNav").f("height", pe("#nav").e.offsetHeight + "px");
+});
+window.addEventListener("resize", e => {
+    pe("#heightNav").f("height", pe("#nav").e.offsetHeight + "px");
+});
