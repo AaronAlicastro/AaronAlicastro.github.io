@@ -6,6 +6,7 @@
 	margin: 0; padding: 0;
 	color: #fff;
 }#body{ background: #000; } a{ background: none; text-decoration: none; }
+#errorLlenar{ display: none; }
 #absoluteImage{
 	position: absolute; width: 100%; height: 5%; z-index: -1;
 }img{width: 100%;}
@@ -61,7 +62,6 @@
 	width: 90%; max-height: 500px;
 }#me div img{
 	border-radius: 20px; width: 100%; height: 100%; object-fit: cover;
-	object-position: 0 -125px;
 }
 #containerAbout div:nth-child(2){
 	display: flex; flex-flow: column wrap; justify-content: center; width: 60%;
@@ -93,9 +93,14 @@
 	display: flex; flex-flow: row wrap; box-sizing: border-box;
 }#educacionLaterales div{
 	width: 50%; min-width: 450px; box-sizing: border-box; padding: 20px;
+}#educacionLaterales div label{
+	font-size: 24px; color: #59af30;
+}#educacionLaterales div label a{
+	text-decoration: underline #fff;
 }#educacion li{
 	margin: 20px 40px; font-size: 20px;
 }#educacion h3{ font-size: 20px; margin: 0 20px; }
+#educacion span{ color: #aaf; }
 /*portafolio –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– */
 #containerPortafolio{
 	width: 100%; height: fit-content; position: relative; background: rgb(0, 0, 5);
@@ -132,23 +137,6 @@
 	position: absolute; width: 100%; height: 100%; z-index: -1; border-radius: 10%;
 }.cara2 h1{ font-size: 24px; }
 .cara2 h1, .proyectos p{ margin: 30px 20px; color: #fff; font-weight: bold;  }
-/*blogs ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– */
-#containerBlogs{
-	width: 100%; height: fit-content; margin-top: 40px; padding: 0 30px; box-sizing: border-box;
-}#titleContainerBlogs{
-	text-align: center; font-size: 50px;
-}#containerBlogs p{ margin: 20px 0; }
-.blogs{
-	display: inline-block; width: 400px; height: 300px;
-	border-radius: 12px; background: #112; margin: 20px 10px;
-}.blogs:hover{
-	cursor: pointer; font-size: 18px;
-}.blogs img{
-	width: 100%; height: 65%; border-top-right-radius: 12px;
-	border-top-left-radius: 12px;
-}.blogs h6{
-	margin: 15px 20px;
-}.blogs h1{ text-align: center; }
 /*contact –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– */
 #containerContact{
 	width: 100%; height: fit-content; padding: 40px; box-sizing: border-box;
