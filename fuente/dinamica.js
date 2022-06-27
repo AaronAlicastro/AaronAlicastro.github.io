@@ -10,13 +10,13 @@ const observerNav = new IntersectionObserver(navs => {
     });
 }, {
     rootMargin: "0px",
-    threshold: 0.00312
+    threshold: 0.1
 });
 pe(".secciones", 0).forEach(ele => { observerNav.observe(ele.e); });
 function vioSeccion(es) {
     pe(".nav", 0).forEach(ele => {
         ele.f("text-d", "none");
-    }); es.f("text-d", "underline #fff");
+    }); es.f("text-d", "underline #ac8700");
 }
 pe("f").ft(() => pe("f").ca(...pe(".nav", 0)), "event", "click", e => {
     pe(".nav", 0).forEach(ele => {
@@ -27,7 +27,6 @@ pe("f").ft(() => pe("f").ca(...pe(".nav", 0)), "event", "click", e => {
 }, "event", "mouseleave", e => {
     e.target.style.textDecoration = "none";
 });
-pe("a").ft(() => pe("a").ca(...pe(".nav", 0)), "color", "transparent");
 pe("f").ft(() => pe("f").ca(...pe(".conocimientosIMG", 0)), "event", "mouseover", e => {
     e.target.style.transition = "all 1.5s";
     e.target.style.transform = "rotate(-45deg)";
@@ -54,16 +53,16 @@ pe("body").f("event", "click", e => {
 pe("#sent-email").f("event", "click", e => {
     e.preventDefault();
     let campos = pe(".menEmail", 0), llenos = true;
-    campos.forEach(v=>{
-        if(v.e.value.trim() == "") llenos = false;
+    campos.forEach(v => {
+        if (v.e.value.trim() == "") llenos = false;
     });
-    if(llenos){
+    if (llenos) {
         pe("#errorLlenar").f("display", "none");
         let sLink = "mailto:" + "aalicastro5@gmail.com"
-        + "?subject=" + campos[2].e.value
-        + "&body=Saludos, me llamo " + campos[0].e.value +". "+ campos[3].e.value
+            + "?subject=" + campos[2].e.value
+            + "&body=Saludos, me llamo " + campos[0].e.value + ". " + campos[3].e.value
         window.location.href = sLink;
-    }else{
+    } else {
         pe("#errorLlenar").f("display", "block");
     }
 });
@@ -72,4 +71,33 @@ window.addEventListener("load", e => {
 });
 window.addEventListener("resize", e => {
     pe("#heightNav").f("height", pe("#nav").e.offsetHeight + "px");
+});
+let desaparecioMensaje = true;
+pe("f").ft(() => pe("f").ca(...pe(".clickOnPhone", 0)), "event", "click", e => {
+    navigator.clipboard.writeText("3024964680").then(() => {
+    }).catch(err => {
+        console.log('Something went wrong', err);
+    });
+    pe("#mensajeCopy").f("display", "block");
+    if(desaparecioMensaje){ 
+        setTimeout(() => {
+            desaparecioMensaje = true;
+            pe("#mensajeCopy").f("display", "none");
+        }, 1200);
+    }
+    desaparecioMensaje = false;
+});
+pe("f").ft(() => pe("f").ca(...pe(".clickOnEmail", 0)), "event", "click", e => {
+    navigator.clipboard.writeText("aalicastro5@gmail.com").then(() => {
+    }).catch(err => {
+        console.log('Something went wrong', err);
+    });
+    pe("#mensajeCopy").f("display", "block");
+    if(desaparecioMensaje){ 
+        setTimeout(() => {
+            desaparecioMensaje = true;
+            pe("#mensajeCopy").f("display", "none");
+        }, 1200);
+    }
+    desaparecioMensaje = false;
 });
