@@ -1,5 +1,5 @@
 "use strict";
-let taBierta = false, targetActual = false;
+let taBierta = false, targetActual = false, abrioNavMenu = false;
 // funcion del nav –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 const observerNav = new IntersectionObserver(navs => {
     navs.forEach(ele => {
@@ -52,6 +52,7 @@ pe(".cara1", 0).forEach((ele, i) => {
     });
 });
 pe("body").f("event", "click", e => {
+    pe("#asideNav").f("display", "none");
     if(taBierta) openCloseFun(targetActual);
     pe("f").ft(() => pe("f").ca(...pe(".cara1", 0)), "transition,all 0s,z-index,100,opacity,1");
     pe("f").ft(() => pe("f").ca(...pe(".cara2", 0)), "transition,all 0s,z-index,0");
@@ -134,4 +135,15 @@ pe("f").ft(() => pe("f").ca(...pe(".clickOnEmail", 0)), "event", "click", e => {
         }, 1200);
     }
     desaparecioMensaje = false;
+});
+// aparecer nav del phone –––––––––––––––––––––––––––––––––––––––––––––––––––
+pe("#navMenu").f("event", "click", e => {
+    e.stopPropagation();
+    pe("#asideNav").f("display", "flex");
+});
+pe("#asideNav").f("event", "click", e => {
+    e.stopPropagation();
+});
+pe("f").ft(() => pe("f").ca(...pe(".asideNavA", 0)), "event", "click", e => {
+    pe("#asideNav").f("display", "none");
 });

@@ -17,13 +17,22 @@
 				<div>
 					<h1>Alicastro</h1>
 				</div>
-				<div class="texto_f">
+				<div id="navPc">
 					<a class="nav" href="#containerHome">Home</a>
 					<a class="nav" href="#containerAbout">Acerca</a>
 					<a class="nav" href="#containerPortafolio">Portafolio</a>
 					<a class="nav" href="#containerContact">Contacto</a>				
 				</div>
+				<div id="navPhone">	
+					<img id="navMenu" src="https://i.ibb.co/Jx3brHz/menu.png" alt="menu">
+				</div>
 			</nav>
+			<aside id="asideNav">
+				<li><a class="asideNavA" href="#containerHome">Home</a></li>
+				<li><a class="asideNavA" href="#containerAbout">Acerca</a></li>
+				<li><a class="asideNavA" href="#containerPortafolio">Portafolio</a></li>
+				<li><a class="asideNavA" href="#containerContact">Contacto</a></li>
+			</aside>
 		</article>
 		<article id="centrar-y">
 			<div id="content-home">
@@ -58,7 +67,7 @@
 		<article id="containerSkill">
 			<h1>Habilidades</h1>
 			<div id="abilitiesList"> <!-- lista de habilidades -->
-				<div>
+				<div class="filaDiv">
 					<div>
 						<div class="conocimientos">
 							<img class="conocimientosIMG" src="https://drive.google.com/uc?export=view&id=1xE5XwBSk99R250ZCEFqcRBkTl4LrEM-j" alt="IMG">
@@ -123,7 +132,7 @@
 						<h6>MongoDB</h6>
 					</div>
 				</div>
-				<div>
+				<div class="filaDiv">
 					<div>
 						<div class="conocimientos">
 							<img class="conocimientosIMG" src="https://drive.google.com/uc?export=view&id=1usntge3pxQ2XytSzEuvZo9NQ45OWQNgd" alt="IMG">
@@ -573,7 +582,7 @@
 					Debes llenar todos los campos
 				</div>
 				<div class="columnas">
-					<button class="texto_f" id="sent-email">Enviar</button>
+					<button id="sent-email">Enviar</button>
 				</div>
 			</form>
 		</div>
