@@ -25,10 +25,11 @@ body{ background: #e5e7ff; }
 	margin: 0 10px; font-size: 24px; color: transparent;
 	text-shadow: 2px 2px rgba(17, 85, 153, 0.104);
 }#centrar-y{
-	display: grid; place-content: center;
-	height: 80vh;
+	display: flex; justify-content: center;
+	height: 80vh; align-items: center;
 }#content-home{
 	max-width: 850px; height: fit-content;
+	padding: 50px;
 }
 #content-home h6{ text-align: center; font-size: 15px; width: 100%; }
 #content-home h1{
