@@ -179,6 +179,7 @@ body{
 	text-align: center; padding: 15px 0 0 0;
 }.infoOpenclose ul{
 	padding: 15px; box-sizing: border-box;
+	list-style: none;
 }.infoOpenclose ul li{
 	text-align: center;
 }

@@ -51,6 +51,10 @@ pe(".cara1", 0).forEach((ele, i) => {
         pe(".cara2", 0)[i].f("z-index", "100");
     });
 });
+pe("f").ft(() => pe("f").ca(...pe(".cara2", 0)), "event", "click", e => {
+    e.stopPropagation();
+    if(taBierta) openCloseFun(targetActual);
+});
 pe("body").f("event", "click", e => {
     pe("#asideNav").f("display", "none");
     if(taBierta) openCloseFun(targetActual);
