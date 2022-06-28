@@ -132,7 +132,43 @@ body{ background: #e5e7ff; }
 	position: absolute; width: 100%; height: 100%; border-radius: 10%;
 	background-color: #6ef; display: grid; 
 	place-content: center; place-items: center;
-}.cara1{
+}.tech{
+	position: absolute; right: 0; top: 0;
+	padding: 28px 0; box-sizing: border-box;
+	display: flex; justify-content: start;
+	align-items: flex-start;
+}.tech button{
+	color: #000; font-size: 28px; cursor: pointer;
+	padding: 0 4px; margin: 0; background: #68f;
+	border: none; border-top-left-radius: 8px;
+	border-bottom-left-radius: 8px;
+}.infoOpenclose{
+	display: none;
+	background: #68f;
+	flex-grow: 1; height: 100%;
+}.infoOpenclose h3{
+	text-align: center; padding: 15px 0 0 0;
+}.infoOpenclose ul{
+	padding: 15px; box-sizing: border-box;
+}.infoOpenclose ul li{
+	text-align: center;
+}
+@keyframes widthOpenClose{
+	from{
+		width: fit-content; height: 100%;
+	}
+	to{
+		width: 80%; height: 100%;
+	}
+}@keyframes widthOpenCloseReverse{
+	from{
+		width: 80%; height: 100%;
+	}
+	to{
+		width: fit-content; height: fit-content;
+	}
+}
+.cara1{
 	position: absolute; z-index: 1; width: 100%; height: 100%;
 }.cara1:hover{
 	cursor: pointer;
@@ -144,7 +180,7 @@ body{ background: #e5e7ff; }
 	border-bottom-left-radius: 10%; border-bottom-right-radius: 10%;
 	margin-top: 20px;
 }
-.cara2 button{ color: #fff; }
+.cara2 .btnProyectos button{ color: #fff; }
 .cara2 a:nth-child(1) button{
 	background: #120056; font-size: 18px; padding: 15px 10px; border: none; border-radius: 12px;
 }.cara2 a:nth-child(1) button:hover{
