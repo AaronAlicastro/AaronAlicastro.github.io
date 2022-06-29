@@ -1,31 +1,31 @@
-var btn9 = document.getElementById("btn9");
-var btn8 = document.getElementById("btn8");
-var btn7 = document.getElementById("btn7");
-var btn6 = document.getElementById("btn6");
-var btn5 = document.getElementById("btn5");
-var btn4 = document.getElementById("btn4");
-var btn3 = document.getElementById("btn3");
-var btn2 = document.getElementById("btn2");
-var btn1 = document.getElementById("btn1");
-var btn_ = document.getElementById("btn_");
-var btn0 = document.getElementById("btn0");
-var btnDer = document.getElementById("btnDer");
-var btnDelete = document.getElementById("btnDelete");
-var btnIzq = document.getElementById("btnIzq");
-var btnX = document.getElementById("btnX");
-var btnDividir = document.getElementById("btnDividir");
-var btnMas = document.getElementById("btnMas");
-var btnMenos = document.getElementById("btnMenos");
-var btnIgual = document.getElementById("btnIgual");
-var resultadoCalculadora = document.getElementById("resultadoCalculadora");
-var historial = document.getElementById("historial");
-var contenedor_txtHistorial = document.getElementById("contenedor_txtHistorial");
-var txt_historial = document.getElementById("txt_historial");
+let btn9 = document.getElementById("btn9");
+let btn8 = document.getElementById("btn8");
+let btn7 = document.getElementById("btn7");
+let btn6 = document.getElementById("btn6");
+let btn5 = document.getElementById("btn5");
+let btn4 = document.getElementById("btn4");
+let btn3 = document.getElementById("btn3");
+let btn2 = document.getElementById("btn2");
+let btn1 = document.getElementById("btn1");
+let btn_ = document.getElementById("btn_");
+let btn0 = document.getElementById("btn0");
+let btnDer = document.getElementById("btnDer");
+let btnDelete = document.getElementById("btnDelete");
+let btnIzq = document.getElementById("btnIzq");
+let btnX = document.getElementById("btnX");
+let btnDividir = document.getElementById("btnDividir");
+let btnMas = document.getElementById("btnMas");
+let btnMenos = document.getElementById("btnMenos");
+let btnIgual = document.getElementById("btnIgual");
+let resultadoCalculadora = document.getElementById("resultadoCalculadora");
+let historial = document.getElementById("historial");
+let contenedor_txtHistorial = document.getElementById("contenedor_txtHistorial");
+let txt_historial = document.getElementById("txt_historial");
 
-var pusoOperativo = true, primeraOperacion = true, position = true, seDioIgual = false;
-var resultadoTotal = 0, operativoActual = false, tipoOperacion = "";
-var numero1 = "", numero2 = "", localStoragePosition = 0;
-var verHistorial = true;
+let pusoOperativo = true, primeraOperacion = true, position = true, seDioIgual = false;
+let resultadoTotal = 0, operativoActual = false, tipoOperacion = "";
+let numero1 = "", numero2 = "", localStoragePosition = 0;
+let verHistorial = true;
 
 btn9.addEventListener("click", (e)=>{ ingresarExpresion("9");});
 btn8.addEventListener("click", (e)=>{ ingresarExpresion("8");});
@@ -56,9 +56,7 @@ btnIgual.addEventListener("click", (e)=>{
 });
 historial.addEventListener("click", (e)=>{
 	if (verHistorial) {
-		contenedor_txtHistorial.style.display = "flex";
-		contenedor_txtHistorial.style.width = "25vw";
-		contenedor_txtHistorial.style.height = "25vh";
+		contenedor_txtHistorial.style.display = "block";
 		rellenarHistorial();
 		historial.innerText = "Dejar de ver";
 		verHistorial = false;
@@ -72,8 +70,8 @@ historial.addEventListener("click", (e)=>{
 function rellenarHistorial(){
 	if (localStoragePosition == 0) txt_historial.value = "historial vacío";
 	else txt_historial.value = "";
-	for (var i = localStoragePosition; i >= 1; i--) {
-		txt_historial.value += localStorage.getItem("resultado"+i)+" 		("+i+")"+"\n"
+	for (let i = 1; i <= localStoragePosition; i++) {
+		txt_historial.value += i+".			"+localStorage.getItem("resultado"+i)+"\n"
 													+"––––––––––––––––––––––––––––– \n";
 	}
 }
@@ -167,10 +165,10 @@ function ingresarExpresion(expresion) {
 }
 
 function errorEscritura(){
-	resultadoCalculadora.style.background = "#f00";
+	resultadoCalculadora.style.background = "#fea795";
 }
 function escrituraCorrecta(){
-	resultadoCalculadora.style.background = "#555";	
+	resultadoCalculadora.style.background = "#63f7c5";	
 }
 function limpiar(){
 	resultadoCalculadora.innerText = "";
@@ -237,31 +235,3 @@ function resolver(expresion){
 	}
 	return resultadoTotal;
 }
-///////////////////////////// parte de las palabras ////////////////////////////////////////////////////////
-
-var mayusculas = document.getElementById("mayusculas");
-var minusculas = document.getElementById("minusculas");
-var numCaracteres = document.getElementById("numCaracteres"); //boton para el numero de caracteres
-var txt_numCaracteres = document.getElementById("txt_numCaracteres");
-var boton_limpiar = document.getElementById("boton_limpiar");
-var textoPrueba = document.getElementById("textoPrueba");
-
-mayusculas.addEventListener("click", (e)=>{
-	let textoIngresado = textoPrueba.value;
-	textoPrueba.value = textoIngresado.toUpperCase();
-});
-
-minusculas.addEventListener("click", (e)=>{
-	let textoIngresado = textoPrueba.value;
-	textoPrueba.value = textoIngresado.toLowerCase();
-});
-
-numCaracteres.addEventListener("click", (e)=>{
-	let textoIngresado = textoPrueba.value;
-	txt_numCaracteres.value = textoIngresado.length;
-});
-
-boton_limpiar.addEventListener("click", (e)=>{
-	textoPrueba.value = "";
-	txt_numCaracteres.value = "";
-});
