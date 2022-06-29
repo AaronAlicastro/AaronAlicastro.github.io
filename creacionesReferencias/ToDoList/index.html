@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,11 +15,27 @@
 			<input type="text" class="inputFormulario" placeholder="Titulo">
 			<textarea class="inputFormulario" placeholder="Descripcion"></textarea>
 			<div id="containerBotonFormulario">
-				<button class="inputFormulario">Aceptar</button>
-				<button class="inputFormulario">Cancelar</button>
+				<button class="inputFormulario" id="btnAceptar">Aceptar</button>
+				<button class="inputFormulario" id="btnCancelar">Cancelar</button>
 				<button id="ok">Ok</button>
 				<button id="eliminar">Eliminar</button>
 			</div>
+		</div>
+	</div>
+	<div id="containerCaneca">
+		<div>
+			<h1>Papelera</h1>
+			<div id="contenidoCaneca">
+				<!-- estructura de la papelera -->
+				<!-- 
+					<div class="tareasCaneca">
+						<h4>titulo</h4>
+						<button class="canecaRestaurar">Restaurar</button>
+						<button class="canecaEliminar">Eliminar</button>
+					</div>
+				-->
+			</div>
+			<button id="cerrarCaneca">Cerrar</button>
 		</div>
 	</div>
 
@@ -26,25 +43,26 @@
 		<div id="containerToDoList">
 			<div id="containerOpcionesLista">
 				<button class="opciones">A&ntildeadir</button>
-				<div id="containerBusqueda">
-					<input type="text" class="opciones" placeholder="Busque por el título">
-					<button class="opciones">Buscar</button>
-				</div>
+				<input type="text" class="opciones" placeholder="Busque por el título">
+				<button class="opciones">Buscar</button>
 			</div>
 
 			<div id="containerListaToDoList">
+				<!-- prototipo a crear a continuacion -->
 				<!--<div class="tareaAgregada">
 						<h4 class="descripcionTarea">tarea tal</h4>
 						<h1 class="tituloTarea">Papu</h1>
 					</div>
-				quehaceres a agregar -->
+				-->
 			</div>
 		</div>
 
 		<div id="containerContainerPapelera">
 			<div id="containerPapelera">
 				<h1>Eliminados</h1>
-				<div id="Papelera"><h4 id="pape_pape">0</h4></div>
+				<div id="papelera">
+					<h4 id="pape_pape">0</h4>
+				</div>
 			</div>
 		</div>
 	</div>
