@@ -47,8 +47,9 @@ body{
 }
 #centrar-y{
 	display: flex; justify-content: center;
-	height: 100vh; align-items: center;
-	min-height: 500px;
+	align-items: center;
+	min-height: 580px;
+	max-height: 580px;
 }#content-home{
 	max-width: 850px; height: fit-content;
 	padding: 50px;
@@ -79,7 +80,8 @@ body{
 /*about me –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– */
 #containerAbout{
 	display: flex; flex-flow: row wrap; justify-content: center;
-	width: 100%; height: fit-content; min-height: 100vh;
+	width: 100%; height: fit-content;
+	padding: 50px 0; box-sizing: content-box;
 }#containerAbout div:nth-child(1){
 	display: grid; place-content: center;
 	min-width: 450px; padding: 15px;
@@ -224,6 +226,51 @@ body{
 }.cara2 h1{ font-size: 24px; }
 .cara2 h1, .proyectos p{ margin: 10px 0; color: #000; font-weight: bold;  }
 .proyectos p{ padding: 0 30px; }
+	/* portafolio para celulares ––––––––––––––––––––––––––––––––––––––––––– */
+	#projectToPhone{
+		display: none; justify-content: center; 
+		align-items: center;
+		margin: 15px 0 0 0;
+		width: 100vw; height: fit-content; 
+		box-sizing: content-box;
+	}.projectPhone{
+		width: 60%; min-height: fit-content;
+		min-width: 360px;
+		background: #fff;
+		background: rgb(255,255,255);
+		background: radial-gradient(circle, rgba(255,255,255,1) 28%, rgba(229,231,255,1) 81%);
+	}.projectPhone_nav{
+		display: flex; justify-content: center;
+		height: 40px;
+	}.projectPhone_nav button{
+		font-size: 23px; font-weight: bold;
+		padding: 3px 9px; margin: 0 0 0 20px;
+		border: none; outline: none;
+	}.projectPhone div:nth-child(2) p{
+		font-size: 16px; padding: 20px;
+		box-sizing: border-box;
+	}.projectPhone div:nth-child(3){
+		height: 300px; position: relative;
+		display: flex; 
+		justify-content: center;
+		align-items: center;
+	}.projectPhone div:nth-child(3) img{
+		position: absolute;
+		width: 100%; height: 100%;
+		object-fit: cover;
+		object-position: right;
+		border-radius: 8px;
+	}.projectPhone div:nth-child(3) button{
+		position: relative; z-index: 100;
+		color: #000;
+		background: #fff; font-size: 18px; 
+		padding: 15px 10px; border-radius: 12px;
+		border: 1px solid #000;
+	}.projectPhone div:nth-child(3) button:hover{
+		transform: scale(1.2); cursor: pointer;
+	}.projectPhone div:nth-child(3) a:nth-child(3) button{
+		margin-left: 20px;
+	}
 /*contact –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– */
 #containerContact{
 	width: 100%; height: fit-content; padding: 40px; box-sizing: border-box;
@@ -263,16 +310,7 @@ body{
 	cursor: pointer; transition: letter-spacing .5s;
 	letter-spacing: 1.5px;
 }/*arreglos –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– */
-@media(max-width:690px){
-	/* #containerHome nav{
-		flex-direction: column; justify-content: center;
-	}#containerHome nav div:nth-child(1){
-		width: 100%; flex-grow: 1; justify-content: center; 
-		align-items: center; margin: 0; padding: 0;
-	}#containerHome nav div:nth-child(2){
-		width: 100%; flex-grow: 1; order: 100; align-items: center; 
-		justify-content: center;
-	} */
+@media(max-width: 690px){
 	#content-home p{
 		padding: 20px;
 	}#containerAbout div:nth-child(2){
@@ -284,7 +322,7 @@ body{
 	}#containerHome nav #navPhone{
 		display: block;
 	}
-}@media(max-width:1245px){
+}@media(max-width: 1245px){
 	#containerAbout{
 		flex-direction: column; justify-content: center; 
 		align-items: center;
@@ -294,7 +332,7 @@ body{
 	#content-home p{
 		padding: 20px; box-sizing: border-box;
 	}
-}@media(max-width:865px){
+}@media(max-width: 865px){
 	#concatFlexRow{
 		flex-direction: column;
 	}.columnas:nth-child(1) input{
@@ -315,5 +353,11 @@ body{
 		width: 100%;
 	}#educacionLaterales ul label{
 		padding-left: 25px;
+	}
+}@media(max-width: 1000px){
+	#containerProyectos{
+		display: none;
+	}#projectToPhone{
+		display: flex;
 	}
 }

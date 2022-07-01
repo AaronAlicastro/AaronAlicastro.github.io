@@ -61,6 +61,42 @@ pe("body").f("event", "click", e => {
     pe("f").ft(() => pe("f").ca(...pe(".cara1", 0)), "transition,all 0s,z-index,100,opacity,1");
     pe("f").ft(() => pe("f").ca(...pe(".cara2", 0)), "transition,all 0s,z-index,0");
 });
+// funciones de los proyectos en modo celular ––––––––––––––––––––––––––––––––––
+pe(".projectPhone_nav").e.children[0].style.display = "none";
+pe(".projectPhone_nav", (pe(".projectPhone_nav", 0).length-1), 0).e.children[2].style.display = "none";
+let carruIndex = 0, moveCarru, projectActual;
+pe(".projectPhone_nav", 0).forEach( nv => {
+    nv.e.children[0].addEventListener("click", e => {
+        clearInterval(moveCarru);
+        carruIndex--;
+        projectActual.e.style.display = "none";
+        projectActual = pe(".projectPhone", carruIndex, 0);
+        projectActual.e.style.display = "block";
+    });
+    nv.e.children[2].addEventListener("click", e => {
+        clearInterval(moveCarru);
+        carruIndex++;
+        projectActual.e.style.display = "none";
+        projectActual = pe(".projectPhone", carruIndex, 0);
+        projectActual.e.style.display = "block";
+    });
+});
+const observerProyectoInPhone = new IntersectionObserver(n => {
+    if(n[0].isIntersecting && carruIndex == 0){
+        moveCarru = setInterval(()=>{
+            if(carruIndex == 0) pe(".projectPhone").e.style.display = "none";
+            else pe(".projectPhone", carruIndex, 0).e.style.display = "none";
+            projectActual = pe(".projectPhone", (carruIndex + 1), 0);
+            projectActual.e.style.display = "block";
+            carruIndex++;
+            if((carruIndex + 1) == pe(".projectPhone", 0).length) clearInterval(moveCarru);
+        }, 1200);
+    }
+}, {
+    rootMargin: "0px",
+    threshold: 1
+});
+observerProyectoInPhone.observe( pe("#projectToPhone").e );
 // etiquetas de los proyectos –––––––––––––––––––––––––––––––––––––––––––––––––––
 function openCloseFun(target){
     if(target){
