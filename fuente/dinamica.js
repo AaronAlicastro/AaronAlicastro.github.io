@@ -94,7 +94,7 @@ const observerProyectoInPhone = new IntersectionObserver(n => {
     }
 }, {
     rootMargin: "0px",
-    threshold: 1
+    threshold: 0.1
 });
 observerProyectoInPhone.observe( pe("#projectToPhone").e );
 // etiquetas de los proyectos –––––––––––––––––––––––––––––––––––––––––––––––––––
