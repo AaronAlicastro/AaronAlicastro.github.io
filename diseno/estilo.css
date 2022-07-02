@@ -7,6 +7,11 @@ body{
 	box-sizing: border-box;
 }
 #errorLlenar{ display: none; text-align: center; }
+.tituloSecciones{
+	text-align: left; font-size: 45px;
+	margin: 20px 0; padding-left: 20px;
+	box-sizing: border-box; width: 100%;
+}
 #containerHome{
 	display: flex; flex-flow: column wrap;
 }#containerHome nav{
@@ -58,10 +63,12 @@ body{
 #content-home h1{
 	font-size: 50px; text-align: center; font-weight: 1800;
 	margin: 10px 0; font-family: 'Allura', cursive;
+	text-align: center;
 }
 #content-home p{ 
 	font-size: 23px; width: 100%; margin: 10px 0 30px 0; 
 	font-weight: lighter; font-family: calibri;
+	text-align: center;
 }
 #content-home div{ 
 	display: flex; flex-flow: row wrap; justify-content: center;
@@ -95,17 +102,11 @@ body{
 	text-align: center; font-size: 46px; margin: 20px 0; width: 100%;
 }#containerAbout div:nth-child(2) p{
 	font-size: 20px; width: 100%; font-family: calibri;
+	text-align: center;
 }/*abilities ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– */
 #containerSkill{
 	display: flex; flex-flow: column wrap; box-sizing: content-box;
 	width: 100%; height: fit-content;
-}#containerSkill > h1{ 
-	font-size: 25px; margin: 20px 0; padding-left: 30px;
-	box-sizing: border-box; width: 100%;
-}
-#educacion > h1{
-	margin: 40px 0; font-size: 25px; padding-left: 30px;
-	box-sizing: border-box; width: 100%;
 }#abilitiesList{
 	display: flex; flex-flow: row wrap;
 	width: 100vw;
@@ -134,6 +135,7 @@ body{
 }#educacionLaterales ul label{
 	font-size: 24px; color: #fff;
 	text-shadow: 2px 2px #36a; font-weight: bold;
+	padding-left: 40px; box-sizing: border-box;
 }#educacionLaterales ul label a{
 	text-decoration: underline #000; 
 	color: #192; text-shadow: none; margin-left: 15px;
@@ -150,8 +152,6 @@ body{
 /*portafolio –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– */
 #containerPortafolio{
 	width: 100%; height: fit-content;
-}#containerPortafolio h1{
-	text-align: center; font-size: 45px;
 }#containerProyectos, #containerCards{
 	display: flex; flex-flow: row wrap; justify-content: center;
 }.proyectos{
@@ -185,21 +185,22 @@ body{
 }.infoOpenclose ul li{
 	text-align: center;
 }
-@keyframes widthOpenClose{
-	from{
-		width: fit-content; height: 100%;
+	/* Animación de de las etiquetas>tecnologías en los proyectos */
+	@keyframes widthOpenClose{
+		from{
+			width: fit-content; height: 100%;
+		}
+		to{
+			width: 80%; height: 100%;
+		}
+	}@keyframes widthOpenCloseReverse{
+		from{
+			width: 80%; height: 100%;
+		}
+		to{
+			width: fit-content; height: fit-content;
+		}
 	}
-	to{
-		width: 80%; height: 100%;
-	}
-}@keyframes widthOpenCloseReverse{
-	from{
-		width: 80%; height: 100%;
-	}
-	to{
-		width: fit-content; height: fit-content;
-	}
-}
 .cara1{
 	position: absolute; z-index: 1; width: 100%; height: 100%;
 }.cara1:hover{
@@ -223,7 +224,9 @@ body{
 	transform: scale(1.2); cursor: pointer;
 }.cara2 img{
 	position: absolute; width: 100%; height: 100%; z-index: -1; border-radius: 10%;
-}.cara2 h1{ font-size: 24px; }
+}.cara2 h1{ 
+	font-size: 45px; text-align: center;
+ }
 .cara2 h1, .proyectos p{ margin: 10px 0; color: #000; font-weight: bold;  }
 .proyectos p{ padding: 0 30px; }
 	/* portafolio para celulares ––––––––––––––––––––––––––––––––––––––––––– */
@@ -273,12 +276,12 @@ body{
 	}
 /*contact –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– */
 #containerContact{
-	width: 100%; height: fit-content; padding: 40px; box-sizing: border-box;
-}#containerContact h1, #containerContact p{
-	margin: 10px 0;
+	width: 100%; height: fit-content; box-sizing: border-box;
+}#containerContact p{
+	padding-left: 20px; box-sizing: border-box;
 }#concatFlexRow{
 	display: flex; flex-flow: row wrap; box-sizing: border-box; 
-	height: fit-content; position: relative;
+	height: fit-content; position: relative; padding: 20px;
 }#leftContact{
 	flex-grow: 1; display: flex; flex-flow: column wrap; justify-content: center;
 	align-items: center; box-sizing: border-box; height: 350px;
