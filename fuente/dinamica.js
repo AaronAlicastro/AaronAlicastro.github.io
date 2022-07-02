@@ -136,7 +136,7 @@ window.addEventListener("load", e => {
 window.addEventListener("resize", e => {
     pe("#heightNav").f("height", pe("#nav").e.offsetHeight + "px");
 });
-// mensaje de copiado ––––––––––––––––––––––––––––––––––––––––––––––––––––––
+// mensajes de copiado ––––––––––––––––––––––––––––––––––––––––––––––––––––––
 let desaparecioMensaje = true;
 pe("f").ft(() => pe("f").ca(...pe(".clickOnPhone", 0)), "event", "click", e => {
     navigator.clipboard.writeText("3024964680").then(() => {
@@ -153,18 +153,10 @@ pe("f").ft(() => pe("f").ca(...pe(".clickOnPhone", 0)), "event", "click", e => {
     desaparecioMensaje = false;
 });
 pe("f").ft(() => pe("f").ca(...pe(".clickOnEmail", 0)), "event", "click", e => {
-    navigator.clipboard.writeText("aalicastro5@gmail.com").then(() => {
-    }).catch(err => {
-        console.log('Something went wrong', err);
-    });
-    pe("#mensajeCopy").f("display", "block");
-    if(desaparecioMensaje){ 
-        setTimeout(() => {
-            desaparecioMensaje = true;
-            pe("#mensajeCopy").f("display", "none");
-        }, 1200);
-    }
-    desaparecioMensaje = false;
+    let sLink = "mailto:" + "aalicastro5@gmail.com"
+        + "?subject="
+        + "&body=";
+    window.location.href = sLink;
 });
 // aparecer nav del phone –––––––––––––––––––––––––––––––––––––––––––––––––––
 pe("#navMenu").f("event", "click", e => {
