@@ -4,10 +4,10 @@ let taBierta = false, targetActual = false, abrioNavMenu = false;
 const observerNav = new IntersectionObserver(navs => {
     navs.forEach(ele => {
         if (ele.isIntersecting) {
-            if (ele.target.getAttribute("id") == "containerHome") vioSeccion(pe(".nav", 0)[0]);
-            else if (ele.target.getAttribute("id") == "about") vioSeccion(pe(".nav", 0)[1]);
-            else if (ele.target.getAttribute("id") == "containerPortafolio") vioSeccion(pe(".nav", 0)[2]);
-            else if (ele.target.getAttribute("id") == "containerContact") vioSeccion(pe(".nav", 0)[3]);
+            if (ele.target.getAttribute("id") == "containerHome") vioSeccion(pe(".nav"), pe(".asideNavA"));
+            else if (ele.target.getAttribute("id") == "about") vioSeccion(pe(".nav", 1, 0), pe(".asideNavA", 1, 0));
+            else if (ele.target.getAttribute("id") == "containerPortafolio") vioSeccion(pe(".nav", 2, 0), pe(".asideNavA", 2, 0));
+            else if (ele.target.getAttribute("id") == "containerContact") vioSeccion(pe(".nav", 3, 0), pe(".asideNavA", 3, 0));
         }
     });
 }, {
@@ -15,10 +15,13 @@ const observerNav = new IntersectionObserver(navs => {
     threshold: 0.1
 });
 pe(".secciones", 0).forEach(ele => { observerNav.observe(ele.e); });
-function vioSeccion(es) {
+function vioSeccion(esPc, esPhone) {
     pe(".nav", 0).forEach(ele => {
         ele.f("text-d", "none");
-    }); es.f("text-d", "underline #ac8700");
+    }); esPc.f("text-d", "underline #ac8700");
+    pe(".asideNavA", 0).forEach(ele => {
+        ele.f("color", "#fff");
+    }); esPhone.f("color", "#f00");
 }
 pe("f").ft(() => pe("f").ca(...pe(".nav", 0)), "event", "click", e => {
     pe(".nav", 0).forEach(ele => {
@@ -39,18 +42,6 @@ pe("f").ft(() => pe("f").ca(...pe(".conocimientosIMG", 0)), "event", "mouseover"
     }, 1400);
 });
 // funcion de las caras de los proyectos –––––––––––––––––––––––––––––––––––––
-pe(".cara1", 0).forEach((ele, i) => {
-    ele.f("event", "click", e => {
-        e.stopPropagation();
-        if(taBierta) openCloseFun(targetActual);
-        pe("f").ft(() => pe("f").ca(...pe(".cara1", 0)), "transition,all 0s,z-index,100,opacity,1");
-        pe("f").ft(() => pe("f").ca(...pe(".cara2", 0)), "transition,all 0s,z-index,0");
-        ele.f("transition", "opacity 0.8s, z-index 0.8s");
-        ele.f("z-index", "0");
-        ele.f("opacity", "0");
-        pe(".cara2", 0)[i].f("z-index", "100");
-    });
-});
 pe("f").ft(() => pe("f").ca(...pe(".cara2", 0)), "event", "click", e => {
     e.stopPropagation();
     if(taBierta) openCloseFun(targetActual);
@@ -58,8 +49,6 @@ pe("f").ft(() => pe("f").ca(...pe(".cara2", 0)), "event", "click", e => {
 pe("body").f("event", "click", e => {
     pe("#asideNav").f("display", "none");
     if(taBierta) openCloseFun(targetActual);
-    pe("f").ft(() => pe("f").ca(...pe(".cara1", 0)), "transition,all 0s,z-index,100,opacity,1");
-    pe("f").ft(() => pe("f").ca(...pe(".cara2", 0)), "transition,all 0s,z-index,0");
 });
 // funciones de los proyectos en modo celular ––––––––––––––––––––––––––––––––––
 pe(".projectPhone_nav").e.children[0].style.display = "none";
@@ -119,6 +108,7 @@ function openCloseFun(target){
 }
 pe("f").ft(() => pe("f").ca(...pe(".openClose", 0)), "event", "click", e => {
     e.stopPropagation();
+    if(taBierta) openCloseFun(targetActual);
     targetActual = e.target;
     openCloseFun(e.target);
 });
