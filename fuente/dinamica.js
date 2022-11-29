@@ -23,7 +23,7 @@ function vioSeccion(esPc, esPhone) {
         ele.f("color", "#fff");
     }); esPhone.f("color", "#f00");
 }
-pe("f").ft(() => pe("f").ca(...pe(".nav", 0)), "event", "click", e => {
+pe("f").ft([...pe(".nav", 0)], "event", "click", e => {
     pe(".nav", 0).forEach(ele => {
         ele.f("text-d", "none");
     }); e.target.style.textDecoration = "underline #fff";
@@ -33,7 +33,7 @@ pe("f").ft(() => pe("f").ca(...pe(".nav", 0)), "event", "click", e => {
     e.target.style.textDecoration = "none";
 });
 // movimiento de los conocimientos ––––––––––––––––––––––––––––––––––––––––––––
-pe("f").ft(() => pe("f").ca(...pe(".conocimientosIMG", 0)), "event", "mouseover", e => {
+pe("f").ft([...pe(".conocimientosIMG", 0)], "event", "mouseover", e => {
     e.target.style.transition = "all 1.5s";
     e.target.style.transform = "rotate(-45deg)";
 }, "event", "mouseleave", e => {
@@ -42,7 +42,7 @@ pe("f").ft(() => pe("f").ca(...pe(".conocimientosIMG", 0)), "event", "mouseover"
     }, 1400);
 });
 // funcion de las caras de los proyectos –––––––––––––––––––––––––––––––––––––
-pe("f").ft(() => pe("f").ca(...pe(".cara2", 0)), "event", "click", e => {
+pe("f").ft([...pe(".cara2", 0)], "event", "click", e => {
     e.stopPropagation();
     if(taBierta) openCloseFun(targetActual);
 });
@@ -106,7 +106,7 @@ function openCloseFun(target){
         }
     }
 }
-pe("f").ft(() => pe("f").ca(...pe(".openClose", 0)), "event", "click", e => {
+pe("f").ft([...pe(".openClose", 0)], "event", "click", e => {
     e.stopPropagation();
     if(taBierta) openCloseFun(targetActual);
     targetActual = e.target;
@@ -138,7 +138,7 @@ window.addEventListener("resize", e => {
 });
 // mensajes de copiado ––––––––––––––––––––––––––––––––––––––––––––––––––––––
 let desaparecioMensaje = true;
-pe("f").ft(() => pe("f").ca(...pe(".clickOnPhone", 0)), "event", "click", e => {
+pe("f").ft([...pe(".clickOnPhone", 0)], "event", "click", e => {
     navigator.clipboard.writeText("3024964680").then(() => {
     }).catch(err => {
         console.log('Something went wrong', err);
@@ -152,7 +152,7 @@ pe("f").ft(() => pe("f").ca(...pe(".clickOnPhone", 0)), "event", "click", e => {
     }
     desaparecioMensaje = false;
 });
-pe("f").ft(() => pe("f").ca(...pe(".clickOnEmail", 0)), "event", "click", e => {
+pe("f").ft([...pe(".clickOnEmail", 0)], "event", "click", e => {
     let sLink = "mailto:" + "aalicastro5@gmail.com"
         + "?subject="
         + "&body=";
@@ -166,6 +166,6 @@ pe("#navMenu").f("event", "click", e => {
 pe("#asideNav").f("event", "click", e => {
     e.stopPropagation();
 });
-pe("f").ft(() => pe("f").ca(...pe(".asideNavA", 0)), "event", "click", e => {
+pe("f").ft([...pe(".asideNavA", 0)], "event", "click", e => {
     pe("#asideNav").f("display", "none");
 });

@@ -408,6 +408,12 @@ function levels(){
     bestPlayer();
     altoJuego= juego.offsetHeight; anchoJuego= juego.offsetWidth;
     setTimeout((e)=>{ alert("nivel "+level);}, 300);
+    setTimeout((e)=>{
+        if(moveRight==true){
+            moveRight=false;
+            cicloMaiz[1]=setInterval(moverAlante, 1/250);
+        }
+    }, 5000);
     blockSave0Estatico();
     
     if(level<=5){
@@ -671,6 +677,12 @@ function perdedor(){
             bsControls[3].innerHTML= "corn: "+vidas;
             maiz.style.left= "0";
             maiz.style.top= (blockSave[0].offsetTop-maiz.offsetHeight)+"px";
+            setTimeout((e)=>{
+                if(moveRight==true){
+                    moveRight=false;
+                    cicloMaiz[1]=setInterval(moverAlante, 1/250);
+                }
+            }, 5000);
         }else{
             clearInterval(cicloBlockSave2);
             level=1; vidas=7;

@@ -1,228 +1,77 @@
 "use strict";
-
 let abuelo = {
 	neuronas: [],
 	m: (id,fun)=>{ abuelo.neuronas[id] = fun; },
 	f: (id,elemento,value,fun)=>{ try{ abuelo.neuronas[id](elemento,value,fun); }catch(error){ console.error("No se ha encontrado el parámetro "+id); } }
 }
-
 function pe(identificador,index,fin) {
 	let elemento = document.querySelector(identificador);
-	let elemento2 = [];
 	if (index || index == 0){
+		let elemento2 = [];
 		elemento = document.querySelectorAll(identificador);
 		if ((index == 0 || index >= elemento.length) && !fin && fin != 0) {
 			elemento.forEach(ele=>{
-				elemento2.push({
-					e: ele,
-					m: (id,fun,atri)=>{ abuelo.m(id,fun,atri); },
-					f: (id,value,fun)=>{ abuelo.f(id,ele,value,fun); },
-					ca: (...parientes)=>{ return parientes; },
-					ft: (funParientes, ...estilos)=>{
-						let parientesStyles = funParientes();
-						for(let i = 0; i < estilos.length; i++){
-							if (typeof estilos[i] == "string" && estilos[i].includes(",")) {
-								estilos[i] = estilos[i].split(",");
-								for(let j = 0; j < estilos[i].length; j++){
-									if (estilos[i][j] == "event" || estilos[i][j] == "atributo"){
-										if (estilos[i][j] == "atributo") {
-											parientesStyles.forEach(ele=>{
-												ele.f(estilos[i][j],estilos[i][j+1],estilos[i][j+2]);
-											}); j += 2;
-										}else{
-											parientesStyles.forEach(ele=>{
-												ele.f(estilos[i][j],estilos[i][j+1],estilos[i+1]);
-											}); j += 1; i += 1;
-										}
-									}else{
-										parientesStyles.forEach(ele=>{
-											ele.f(estilos[i][j],estilos[i][j+1]);
-										}); j += 1;
-									}
-								}
-							}else if (estilos[i] == "event" || estilos[i] == "atributo") {
-								parientesStyles.forEach(ele=>{
-									ele.f(estilos[i],estilos[i+1],estilos[i+2]);
-								}); i += 2;
-							}else{
-								parientesStyles.forEach(ele=>{
-									ele.f(estilos[i],estilos[i+1]);
-								}); i += 1;
-							}
-						}
-					}
-				});
+				elemento2.push(genes(ele));
 			});
 		}else if((fin + index) <= elemento.length){
 			if(fin == 0){
-				elemento2 = {
-					e: elemento[index],
-					m: (id,fun,atri)=>{ abuelo.m(id,fun,atri); },
-					f: (id,value,fun)=>{ abuelo.f(id,elemento[index],value,fun); },
-					ca: (...parientes)=>{ return parientes; },
-					ft: (funParientes, ...estilos)=>{
-						let parientesStyles = funParientes();
-						for(let i = 0; i < estilos.length; i++){
-							if (typeof estilos[i] == "string" && estilos[i].includes(",")) {
-								estilos[i] = estilos[i].split(",");
-								for(let j = 0; j < estilos[i].length; j++){
-									if (estilos[i][j] == "event" || estilos[i][j] == "atributo"){
-										if (estilos[i][j] == "atributo") {
-											parientesStyles.forEach(ele=>{
-												ele.f(estilos[i][j],estilos[i][j+1],estilos[i][j+2]);
-											}); j += 2;
-										}else{
-											parientesStyles.forEach(ele=>{
-												ele.f(estilos[i][j],estilos[i][j+1],estilos[i+1]);
-											}); j += 1; i += 1;
-										}
-									}else{
-										parientesStyles.forEach(ele=>{
-											ele.f(estilos[i][j],estilos[i][j+1]);
-										}); j += 1;
-									}
-								}
-							}else if (estilos[i] == "event" || estilos[i] == "atributo") {
-								parientesStyles.forEach(ele=>{
-									ele.f(estilos[i],estilos[i+1],estilos[i+2]);
-								}); i += 2;
-							}else{
-								parientesStyles.forEach(ele=>{
-									ele.f(estilos[i],estilos[i+1]);
-								}); i += 1;
-							}
-						}
-					}
-				};
+				elemento2 = genes(elemento[index]);
 			}else{
-				for(let i = index; i <= (fin + index); i++){
-					elemento2.push({
-						e: elemento[i],
-						m: (id,fun,atri)=>{ abuelo.m(id,fun,atri); },
-						f: (id,value,fun)=>{ abuelo.f(id,elemento[i],value,fun); },
-						ca: (...parientes)=>{ return parientes; },
-						ft: (funParientes, ...estilos)=>{
-							let parientesStyles = funParientes();
-							for(let i = 0; i < estilos.length; i++){
-								if (typeof estilos[i] == "string" && estilos[i].includes(",")) {
-									estilos[i] = estilos[i].split(",");
-									for(let j = 0; j < estilos[i].length; j++){
-										if (estilos[i][j] == "event" || estilos[i][j] == "atributo"){
-											if (estilos[i][j] == "atributo") {
-												parientesStyles.forEach(ele=>{
-													ele.f(estilos[i][j],estilos[i][j+1],estilos[i][j+2]);
-												}); j += 2;
-											}else{
-												parientesStyles.forEach(ele=>{
-													ele.f(estilos[i][j],estilos[i][j+1],estilos[i+1]);
-												}); j += 1; i += 1;
-											}
-										}else{
-											parientesStyles.forEach(ele=>{
-												ele.f(estilos[i][j],estilos[i][j+1]);
-											}); j += 1;
-										}
-									}
-								}else if (estilos[i] == "event" || estilos[i] == "atributo") {
-									parientesStyles.forEach(ele=>{
-										ele.f(estilos[i],estilos[i+1],estilos[i+2]);
-									}); i += 2;
-								}else{
-									parientesStyles.forEach(ele=>{
-										ele.f(estilos[i],estilos[i+1]);
-									}); i += 1;
-								}
-							}
-						}
-					});
+				for(let i = index; i < (fin + index); i++){
+					elemento2.push( genes(elemento[i]) );
 				}
 			}
 		}else{
 			for(let i = 0; i < index; i++){
-				elemento2.push({
-					e: elemento[i],
-					m: (id,fun,atri)=>{ abuelo.m(id,fun,atri); },
-					f: (id,value,fun)=>{ abuelo.f(id,elemento[i],value,fun); },
-					ca: (...parientes)=>{ return parientes; },
-					ft: (funParientes, ...estilos)=>{
-						let parientesStyles = funParientes();
-						for(let i = 0; i < estilos.length; i++){
-							if (typeof estilos[i] == "string" && estilos[i].includes(",")) {
-								estilos[i] = estilos[i].split(",");
-								for(let j = 0; j < estilos[i].length; j++){
-									if (estilos[i][j] == "event" || estilos[i][j] == "atributo"){
-										if (estilos[i][j] == "atributo") {
-											parientesStyles.forEach(ele=>{
-												ele.f(estilos[i][j],estilos[i][j+1],estilos[i][j+2]);
-											}); j += 2;
-										}else{
-											parientesStyles.forEach(ele=>{
-												ele.f(estilos[i][j],estilos[i][j+1],estilos[i+1]);
-											}); j += 1; i += 1;
-										}
-									}else{
-										parientesStyles.forEach(ele=>{
-											ele.f(estilos[i][j],estilos[i][j+1]);
-										}); j += 1;
-									}
-								}
-							}else if (estilos[i] == "event" || estilos[i] == "atributo") {
-								parientesStyles.forEach(ele=>{
-									ele.f(estilos[i],estilos[i+1],estilos[i+2]);
-								}); i += 2;
-							}else{
-								parientesStyles.forEach(ele=>{
-									ele.f(estilos[i],estilos[i+1]);
-								}); i += 1;
-							}
-						}
-					}
-				});
+				elemento2.push( genes(elemento[i]) );
 			}
 		}
 		return elemento2;
 	}else{
-		return {
-			e: elemento,
-			m: (id,fun,atri)=>{ abuelo.m(id,fun,atri); },
-			f: (id,value,fun)=>{ abuelo.f(id,elemento,value,fun); },
-			ca: (...parientes)=>{ return parientes },
-			ft: (funParientes, ...estilos)=>{
-				let parientesStyles = funParientes();
-				for(let i = 0; i < estilos.length; i++){
-					if (typeof estilos[i] == "string" && estilos[i].includes(",")) {
-						estilos[i] = estilos[i].split(",");
-						for(let j = 0; j < estilos[i].length; j++){
-							if (estilos[i][j] == "event" || estilos[i][j] == "atributo"){
-								if (estilos[i][j] == "atributo") {
-									parientesStyles.forEach(ele=>{
-										ele.f(estilos[i][j],estilos[i][j+1],estilos[i][j+2]);
-									}); j += 2;
-								}else{
-									parientesStyles.forEach(ele=>{
-										ele.f(estilos[i][j],estilos[i][j+1],estilos[i+1]);
-									}); j += 1; i += 1;
-								}
+		return genes(elemento);
+	}
+}
+function genes(elemento, identificador){
+	if(identificador) elemento = document.querySelector(identificador);
+	return {
+		e: elemento,
+		m: (id,fun,atri)=>{ abuelo.m(id,fun,atri); },
+		f: (id,value,fun)=>{ abuelo.f(id,elemento,value,fun); },
+		ft: (parientesStyles, ...estilos)=>{
+			for(let i = 0; i < estilos.length; i++){
+				if (typeof estilos[i] == "string" && estilos[i].includes(",")) {
+					estilos[i] = estilos[i].split(",");
+					for(let j = 0; j < estilos[i].length; j++){
+						if (estilos[i][j] == "event" || estilos[i][j] == "atributo"){
+							if (estilos[i][j] == "atributo") {
+								parientesStyles.forEach(ele=>{
+									ele.f(estilos[i][j],estilos[i][j+1],estilos[i][j+2]);
+								}); j += 2;
 							}else{
 								parientesStyles.forEach(ele=>{
-									ele.f(estilos[i][j],estilos[i][j+1]);
-								}); j += 1;
+									ele.f(estilos[i][j],estilos[i][j+1],estilos[i+1]);
+								}); j += 1; i += 1;
 							}
+						}else{
+							parientesStyles.forEach(ele=>{
+								ele.f(estilos[i][j],estilos[i][j+1]);
+							}); j += 1;
 						}
-					}else if (estilos[i] == "event" || estilos[i] == "atributo") {
-						parientesStyles.forEach(ele=>{
-							ele.f(estilos[i],estilos[i+1],estilos[i+2]);
-						}); i += 2;
-					}else{
-						parientesStyles.forEach(ele=>{
-							ele.f(estilos[i],estilos[i+1]);
-						}); i += 1;
 					}
+				}else if (estilos[i] == "event" || estilos[i] == "atributo") {
+					parientesStyles.forEach(ele=>{
+						ele.f(estilos[i],estilos[i+1],estilos[i+2]);
+					}); i += 2;
+				}else{
+					parientesStyles.forEach(ele=>{
+						ele.f(estilos[i],estilos[i+1]);
+					}); i += 1;
 				}
 			}
 		}
 	}
 }
+
 pe("A").m("event",(ele,value,fun)=>{ ele.addEventListener(value,fun) });
 pe("A").m("atributo",(ele,value,atri)=>{ ele.setAttribute(value,atri) });
 pe("A").m("class",(ele,value)=>{ ele.classList.add(value) });
