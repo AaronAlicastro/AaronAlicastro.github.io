@@ -108,6 +108,7 @@ var vidas=7, level=1, numberDisparo=-1, numbMoveDisparo=-1, corn;
 var anchoJuego, altoJuego;
 var blockOver=[], blockOverGris=[], blockOverNegros=[], intNegro=[];
 var numbOver=0, numbOverGris=0, numbOverNegros=0, numbTeletransportar=1, conteoTele=0;
+var temporizadorComienzo;
 
 blockSave[2].style.background= "#0f0";
 blockSave[1].style.display= "none";
@@ -408,7 +409,8 @@ function levels(){
     bestPlayer();
     altoJuego= juego.offsetHeight; anchoJuego= juego.offsetWidth;
     setTimeout((e)=>{ alert("nivel "+level);}, 300);
-    setTimeout((e)=>{
+    clearInterval(temporizadorComienzo);
+    temporizadorComienzo = setTimeout((e)=>{
         if(moveRight==true){
             moveRight=false;
             cicloMaiz[1]=setInterval(moverAlante, 1/250);
@@ -525,12 +527,14 @@ bsControls[1].addEventListener("click", (e)=>{
 });
 bsControls[2].addEventListener("click", (e)=>{
     if(moveRight==true){
+        clearInterval(temporizadorComienzo);
         moveRight=false;
         cicloMaiz[1]=setInterval(moverAlante, 1/250);
     }
 });window.addEventListener("keyup", (e)=>{ //–––––––––––––––funcion teclado––––––––––––––
     if (e.keyCode == 39) {
         if(moveRight==true){
+            clearInterval(temporizadorComienzo);
             moveRight=false;
             cicloMaiz[1]=setInterval(moverAlante, 1/250);
         }
@@ -677,7 +681,8 @@ function perdedor(){
             bsControls[3].innerHTML= "corn: "+vidas;
             maiz.style.left= "0";
             maiz.style.top= (blockSave[0].offsetTop-maiz.offsetHeight)+"px";
-            setTimeout((e)=>{
+            clearInterval(temporizadorComienzo);
+            temporizadorComienzo = setTimeout((e)=>{
                 if(moveRight==true){
                     moveRight=false;
                     cicloMaiz[1]=setInterval(moverAlante, 1/250);
