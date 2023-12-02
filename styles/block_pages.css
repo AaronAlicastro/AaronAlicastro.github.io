@@ -1,0 +1,21 @@
+#container_about {
+    width: calc(50% - var(--general_paddin));
+    height: fit-content;
+    margin-left: var(--general_paddin);
+    margin-top: calc(var(--general) * 2);
+}
+
+#container_about label {
+    color: var(--develop);
+}
+
+#container_about h1 {
+    font-size: var(--title);
+    line-height: 50px;
+    margin: var(--general) 0;
+}
+
+#container_about p {
+    font-size: var(--small);
+    margin-bottom: 8px;
+}

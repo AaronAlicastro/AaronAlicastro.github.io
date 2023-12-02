@@ -1,0 +1,26 @@
+.general_button_first,
+.general_button_second {
+    padding: 8px 24px;
+    border-radius: 8px;
+    font-weight: 800;
+    letter-spacing: 3px;
+    font-size: var(--small);
+    margin: 8px 6px;
+    cursor: pointer;
+}
+
+.general_button_first:hover,
+.general_button_second:hover {
+    transform: scale(1.1);
+}
+
+.general_button_first {
+    border: 1px solid var(--develop);
+    background: var(--develop);
+}
+
+.general_button_second {
+    background: none;
+    border: 1px solid var(--low_emphasis);
+    color: var(--unique);
+}
