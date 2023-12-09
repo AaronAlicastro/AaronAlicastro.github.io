@@ -16,7 +16,8 @@
     /* --text_medium: 38px; */
     --text: 30px;
     --normal: 24px;
-    --small: 18px;
+    --small: 16px;
+    --sub_small: 12px;
 
     /* spaces */
     --general_paddin: 120px;
@@ -27,9 +28,14 @@
 * {
     margin: 0;
     padding: 0;
+    scroll-behavior: smooth;
 }
 
 body {
     background: var(--gray);
     font-family: 'Nunito Sans', sans-serif;
+}
+
+a {
+    text-decoration: none;
 }

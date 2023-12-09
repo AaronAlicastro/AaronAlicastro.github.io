@@ -1,5 +1,6 @@
 .general_button_first,
-.general_button_second {
+.general_button_second,
+.general_button_third {
     padding: 8px 24px;
     border-radius: 8px;
     font-weight: 800;
@@ -10,7 +11,8 @@
 }
 
 .general_button_first:hover,
-.general_button_second:hover {
+.general_button_second:hover,
+.general_button_third:hover {
     transform: scale(1.1);
 }
 
@@ -23,4 +25,13 @@
     background: none;
     border: 1px solid var(--low_emphasis);
     color: var(--unique);
+}
+
+.general_button_third {
+    background: none;
+    border: 1px solid var(--low_emphasis);
+    font-size: var(--sub_small);
+    border-radius: 16px;
+    min-width: 120px;
+    box-sizing: border-box;
 }

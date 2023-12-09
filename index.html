@@ -7,60 +7,114 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alicastro | protfolio</title>
     <link rel="stylesheet" href="styles/general.css" />
+    <link rel="stylesheet" href="styles/page_float_button.css" />
+    <link rel="stylesheet" href="styles/project_description.css" />
     <link rel="stylesheet" href="styles/block_pages.css" />
     <link rel="stylesheet" href="styles/nav.css" />
     <link rel="stylesheet" href="styles/general_buttons.css" />
+    <link rel="stylesheet" href="styles/project_cards.css" />
 
     <script type="text/javascript" src="logic/rememberE.js"></script>
+    <script type="text/javascript" src="logic/const_varibles.js"></script>
+    <script type="text/javascript" src="logic/my_projects.js"></script>
     <script type="text/javascript" src="logic/languague_switch.js"></script>
 </head>
 
 <body>
-    <div id="main_container_page">
-        <nav id="nav_container">
-            <div id=".nav_container_info">
-                <span id=".nav_container_info_message"></span>
+    <nav id="nav_container">
+        <div class="nav_container_info">
+            <span class="nav_container_info_message"></span>
+        </div>
+
+        <div id="nav_container_main">
+            <span>Alicastro</span>
+            <span>
+                <img src="assets/menu_bar.svg" alt="burger icon" />
+            </span>
+        </div>
+
+        <div id="container_float_nav">
+            <img src="assets/mancha.svg" alt="mancha of the nav" id="navigation_manch" />
+
+            <div class="nav_container_info">
+                <span class="nav_container_info_message"></span>
             </div>
 
-            <div id="nav_container_main">
-                <span>Alicastro</span>
-                <span>
-                    <img src="assets/menu_bar.svg" alt="burger icon" />
-                </span>
-            </div>
-
-            <div id="container_float_nav">
-                <img src="assets/mancha.svg" alt="mancha of the nav" id="navigation_manch" />
-                
-                <div id=".nav_container_info">
-                    <span id=".nav_container_info_message"></span>
+            <ul id="navigation">
+                <div id="english_switch_container">
+                    <div id="english_switch_container_ball">
+                        <div id="english_switch_ball"></div>
+                    </div>
+                    <span id="english_switch_text">English</span>
                 </div>
 
-                <ul id="navigation">
-                    <div id="english_switch_container">
-                        <div id="english_switch_container_ball">
-                            <div id="english_switch_ball"></div>
-                        </div>
-                        <span class="navigation_titles" id="english_switch_text"></span>
-                    </div>
+                <li> <a href="#container_proyects" class="navigation_titles"></a> </li>
+                <li> <a href="#container_footer" class="navigation_titles"></a> </li>
+            </ul>
+        </div>
+    </nav>
 
-                    <li class="navigation_titles"></li>
-                    <li class="navigation_titles"></li>
-                </ul>
+    <div id="main_container_page">
+        <div class="block_containers">
+            <div id="container_about">
+                <label class="about_block"></label>
+                <h1 class="about_block"></h1>
+                <p class="about_block"></p>
+
+                <a href="#container_proyects">
+                    <button class="general_button_first about_block"></button>
+                </a>
+                <button class="general_button_second" id="seccion_about_open_linkedin">Linkedin</button>
             </div>
-        </nav>
+        </div>
 
-        <div id="container_about">
-            <label class="about_block"></label>
-            <h1 class="about_block"></h1>
-            <p class="about_block"></p>
+        <div id="container_proyects" class="block_containers">
+            <h2 id="container_proyects_title"></h2>
 
-            <button class="general_button_first about_block"></button>
-            <button class="general_button_second">Linkedin</button>
+            <div class="project_cards">
+                <p class="game_introduccion"></p>
+                <button class="general_button_second game_introduccion"></button>
+            </div>
+
+            <!--
+                Projects here
+            -->
         </div>
     </div>
 
     <div id="container_proyect_description"></div>
+    <div id="project_description" class="block_containers">
+        <h1 class="project_description_des"></h1>
+        <p class="project_description_des"></p>
+        <div>
+            <button class="general_button_first project_description_des"></button>
+            <button class="general_button_second project_description_des"></button>
+        </div>
+    </div>
+
+    <div class="block_containers" id="footer_scroll_hidden">
+        <footer id="container_footer">
+            <div id="container_contact">
+                <h2 class="footer_part"></h2>
+                <div id="container_footer_links">
+                    <img class="img_link_contact" name="phone_broken" src="assets/phone_broken.png" alt="Phone icon"
+                        title="Copy phone number" />
+
+                    <img class="img_link_contact" name="email" src="assets/email.png" alt="Email icon"
+                        title="Copy email address" />
+
+                    <img class="img_link_contact" name="linkedin" src="assets/linkedin.svg" alt="Linkedin icon"
+                        title="Open linkedin porfile" />
+                </div>
+                <label class="footer_part"></label>
+            </div>
+            <img id="img_footer_back" src="assets/footer_back.svg" alt="footer vector" />
+        </footer>
+    </div>
+
+    <button id="page_float_button">
+        <img src="assets/arrow_up.png" alt="arrow up icon" />
+    </button>
 
     <script type="text/javascript" src="logic/main.js"></script>
 </body>

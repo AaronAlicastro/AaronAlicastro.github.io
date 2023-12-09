@@ -33,9 +33,8 @@ const genes = (elemento) => ({
 // lista de propiedades memorizadas
 abuelo.m("event", (ele, value, fun) => { ele.addEventListener(value, fun) });
 abuelo.m("atributo", (ele, value, atri) => { ele.setAttribute(value, atri) });
-abuelo.m("class", (ele, value) => { ele.classList.add(value) });
-abuelo.m("remove-class", (ele, value) => { ele.classList.remove(value) });
-abuelo.m("replace-class", (ele, value) => { ele.classList.replace(value) });
+abuelo.m("add-class", (ele, value) => { ele.classList.add(value) });
+abuelo.m("rm-class", (ele, value) => { ele.classList.remove(value) });
 
 abuelo.m("fondo", (ele, value) => { ele.style.background = value });
 abuelo.m("backgroundImage", (ele, value) => { ele.style.backgroundImage = value });

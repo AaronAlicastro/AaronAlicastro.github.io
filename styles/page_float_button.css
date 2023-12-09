@@ -1,0 +1,15 @@
+#page_float_button {
+    position: fixed;
+    right: var(--general_paddin);
+    bottom: var(--general_paddin);
+    z-index: 9999999999999999999999999999999999999999999999999999999999999;
+    padding: 16px 8px;
+    border: none;
+    border-radius: 8px;
+    background: var(--develop);
+}
+
+#page_float_button img {
+    object-fit: cover;
+    height: 30px;
+}
