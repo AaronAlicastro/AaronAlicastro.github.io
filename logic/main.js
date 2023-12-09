@@ -12,6 +12,7 @@ languague_switch.englishSelected(false); // first set languague
 
 // obteniendo elementos
 let page_float_button = considera("#page_float_button");
+let menu_bar_icon = considera("#menu_bar_icon");
 
 let main_container_page = considera("#main_container_page");
 let container_float_nav = considera("#container_float_nav");
@@ -44,6 +45,19 @@ document.onscroll = () => {
     else page_float_button.f("display", "none");
 };
 page_float_button.f("event", "click", () => document.querySelector("html").scrollTo(0, 0));
+// funcion del burger icon
+menu_bar_icon.f("event", "click", () => {
+    container_float_nav.f("display", "block");
+    container_float_nav.f("rm-class", "class_close_nav_mobile");
+    container_float_nav.f("add-class", "class_open_nav_mobile");
+});
+// cerrar el nav burger
+const closeContainer_float_nav = () => {
+    container_float_nav.f("rm-class", "class_open_nav_mobile");
+    container_float_nav.f("add-class", "class_close_nav_mobile");
+    setTimeout(() => container_float_nav.f("display", "none"), 1200);
+}
+nav_container_info[1].f("event", "click", closeContainer_float_nav);
 
 // Boton para abrir linkedin
 considera("#seccion_about_open_linkedin").f("event", "click", () => window.open(PAGE_VARIABLES.url_linkedin));
@@ -61,12 +75,18 @@ english_switch_container.f("event", "click", () => {
         english_switch_ball.f("fondo", "var(--unique)");
         languague_switch.englishSelected(true);
     }
+
+    if (container_proyect_description.e.offsetWidth < 1000) closeContainer_float_nav();
+});
+
+// ocultar nav_float al dirigirse al dar clic en los enlaces
+aplicarPara(considera(".navigation_titles", 0), "event", "click", () => {
+    if (container_proyect_description.e.offsetWidth < 1000) closeContainer_float_nav();
 });
 
 // funcion para los botones 'ver mas' en los proyectos
 aplicarPara(considera(".button_view_project", 0), "event", "click", e => {
     let index = parseInt(e.target.name);
-    console.log(index)
     project_description.f("rm-class", "close_cortina_class");
     container_proyect_description.f("display", "block");
     container_proyect_description.f("add-class", "open_cortina_class");
@@ -100,13 +120,13 @@ aplicarPara(considera(".button_view_project", 0), "event", "click", e => {
 });
 // boton de cerrar proyectos
 nav_container_info[0].f("event", "click", () => {
+    if (container_proyect_description.e.offsetWidth > 1000) container_float_nav.f("display", "block");
     project_description.f("add-class", "close_cortina_class");
-    container_proyect_description.f("rm-class", "open_cortina_class");
-    container_proyect_description.f("display", "none");
-    container_float_nav.f("display", "block");
     container_contact.f("display", "flex");
     footer_scroll_hidden.f("rm-class", "small_footer");
     nav_container_info[0].f("display", "none");
+    container_proyect_description.f("rm-class", "open_cortina_class");
+    container_proyect_description.f("display", "none");
 
     setTimeout(() => {
         main_container_page.f("display", "block");

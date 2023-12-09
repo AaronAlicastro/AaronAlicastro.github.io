@@ -39,3 +39,113 @@ body {
 a {
     text-decoration: none;
 }
+
+/* responsive */
+
+@media (max-width: 1000px) {
+
+    :root {
+        /* font */
+        --title: 30px;
+        --sub_title: 26px;
+        --text: 24px;
+        --normal: 20px;
+        --small: 14px;
+        --sub_small: 12px;
+
+        /* spaces */
+        --general_paddin: 20px;
+        --general: 12px;
+        --small_space: 8px;
+    }
+
+    #navigation_manch,
+    #container_float_nav {
+        display: none;
+    }
+
+    #container_float_nav {
+        position: fixed !important;
+        right: none !important;
+        background: var(--develop);
+        width: 100vw !important;
+        height: 100vh !important;
+    }
+
+    #container_float_nav .nav_container_info {
+        display: block;
+    }
+
+    #navigation {
+        align-items: center;
+        margin-left: 0 !important;
+    }
+
+    /* burger icon */
+    #nav_container_main span:nth-child(2) {
+        display: inline-block !important;
+    }
+
+    #container_about_father {
+        width: 100% !important;
+        min-height: 60vh !important;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        margin-top: calc(var(--general) * 2);
+        padding: 0 calc(var(--general_paddin) * 2);
+        box-sizing: border-box;
+    }
+
+    #container_about {
+        margin: 0 !important;
+        width: 100% !important;
+        max-width: 700px;
+    }
+
+    #container_about h1 {
+        line-height: 38px !important;
+    }
+
+    /* footer */
+    #footer_scroll_hidden {
+        padding: var(--general_paddin);
+        box-sizing: border-box;
+        min-height: 70vh !important;
+    }
+
+    #container_footer {
+        padding-top: calc(var(--general_paddin) * 2);
+        box-sizing: border-box;
+    }
+
+    #project_description {
+        align-items: center;
+        min-height: 50vh !important;
+    }
+}
+
+
+@media (max-width: 580px) {
+
+    .project_cards {
+        flex-direction: column;
+        align-items: start !important;
+        row-gap: var(--general);
+    }
+
+    .project_cards p {
+        margin: 0 !important;
+    }
+
+    #project_description p {
+        width: 80% !important;
+        text-align: center;
+        margin: 0;
+    }
+
+    #img_footer_back {
+        width: 200vw !important;
+        left: -80vw !important;
+    }
+}
