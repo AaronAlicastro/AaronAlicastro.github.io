@@ -6,27 +6,31 @@ let fragment = document.createDocumentFragment();
 for (let i = 0; i < languague_switch.my_projects.spanish.length; i++) {
     fragment.appendChild(proyect_card_structure(i));
 }
-considera("#container_proyects").e.appendChild(fragment);
+considera("#container_proyects").f("apend", fragment);
 
 languague_switch.englishSelected(false); // first set languague
 
 // obteniendo elementos
+let body = considera("body"); // terminos independientes
 let page_float_button = considera("#page_float_button");
 let menu_bar_icon = considera("#menu_bar_icon");
 
-let main_container_page = considera("#main_container_page");
+let game_introduccion = considera(".game_introduccion", 0); // games
+game_introduccion[0].gameSelected = false;
+
+let main_container_page = considera("#main_container_page"); // contenedor principal y navs
 let container_float_nav = considera("#container_float_nav");
 let nav_container_info = considera(".nav_container_info", 0);
 
-let footer_scroll_hidden = considera("#footer_scroll_hidden");
+let footer_scroll_hidden = considera("#footer_scroll_hidden"); // footer
 let container_contact = considera("#container_contact");
 
-let english_switch_container = considera("#english_switch_container");
+let english_switch_container = considera("#english_switch_container"); // english switcher
 english_switch_container.isTurnedOn = false;
 let english_switch_container_ball = considera("#english_switch_container_ball");
 let english_switch_ball = considera("#english_switch_ball");
 
-let container_proyect_description = considera("#container_proyect_description");
+let container_proyect_description = considera("#container_proyect_description"); // seccion de descripcion del proyecto
 let project_description = considera("#project_description");
 let project_description_des = considera(".project_description_des", 0);
 
@@ -76,7 +80,7 @@ english_switch_container.f("event", "click", () => {
         languague_switch.englishSelected(true);
     }
 
-    if (container_proyect_description.e.offsetWidth < 1000) closeContainer_float_nav();
+    if (body.e.offsetWidth < 1000) closeContainer_float_nav();
 });
 
 // ocultar nav_float al dirigirse al dar clic en los enlaces
@@ -133,6 +137,27 @@ nav_container_info[0].f("event", "click", () => {
         project_description.f("display", "none");
     }, 500);
 });
+
+// funciones para los juegos
+game_introduccion[1].e.onclick = (e) => {
+    if (!game_introduccion[0].gameSelected) {
+        e.preventDefault();
+        let { game, button } = languague_switch.getSortGame();
+        game_introduccion[0].gameSelected = true;
+        game_introduccion[0].f("html", "");
+        game_introduccion[1].f("html", button);
+        game_introduccion[1].e.href = game.link;
+
+        languague_switch.typed(game.description, (character) => game_introduccion[0].f("html+", character), () => {
+            game_introduccion[0].f("apend", span_reject_current_game(languague_switch.englishIsOn, () => {
+                game_introduccion[0].gameSelected = false;
+                game_introduccion[0].f("html", "");
+                game_introduccion[1].f("html", languague_switch.my_games.currentLanguague.button);
+                languague_switch.typed(languague_switch.my_games.currentLanguague.title, (character) => game_introduccion[0].f("html+", character), () => { });
+            }));
+        });
+    }
+}
 
 // funciones de datos de contacto
 aplicarPara(considera(".img_link_contact", 0), "event", "click", e => {

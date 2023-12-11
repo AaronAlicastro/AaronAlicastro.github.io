@@ -32,3 +32,11 @@
     font-weight: lighter;
     margin-right: calc(var(--general) * 2);
 }
+
+/* games */
+
+.span_game_close {
+    margin-left: var(--general);
+    font-weight: bold;
+    text-decoration: underline;
+}

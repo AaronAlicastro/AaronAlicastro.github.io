@@ -8,7 +8,7 @@ const PAGE_VARIABLES = {
         api_heros: "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/",
         api_rick_and_morty: "https://rickandmortyapi.com/api/"
     }
-}
+};
 
 // html structure data
 const proyect_card_structure = (proyect_id) => {
@@ -35,4 +35,13 @@ const proyect_card_structure = (proyect_id) => {
     div_project_cards.appendChild(button_my_projects_to_show);
 
     return div_project_cards;
-}
+};
+const span_reject_current_game = (english, fun) => {
+    let span_game = document.createElement("SPAN");
+
+    span_game.innerText = (english) ? "Go back" : "Volver";
+    span_game.classList.add("span_game_close");
+    span_game.onclick = fun;
+
+    return span_game;
+};

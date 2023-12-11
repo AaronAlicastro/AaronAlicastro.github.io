@@ -1,6 +1,6 @@
 class My_projects {
     constructor() {
-        this.currentLanguague = {};
+        this.currentLanguague = [];
         this.englishIsOn = false;
         this.spanish = [
             {
@@ -173,7 +173,7 @@ class My_projects {
             {
                 title: "Pizzas laurelys",
                 short_description: "What is better than a delicious pizza?, be welcome to see",
-                long_description: "To help a family entrepreneurship, I made this web to show their products as a pizza maker, and, what were the sapien if he has not used his hands? So, I do as my knowledge can go to.",
+                long_description: "To help a family entrepreneurship, I made this web to show their products as a pizza maker, and, What would become of the sapien if he did not use his hands? So, I do as much as my knowledge can reach.",
                 first_button: {
                     enable: true,
                     tag: "Page",

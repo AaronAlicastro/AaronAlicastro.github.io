@@ -1,7 +1,9 @@
 class Languague_switch {
     constructor() {
         this.my_projects = new My_projects();
+        this.my_games = new My_games();
 
+        this.englishIsOn = false;
         this.currentLanguague = {}
         this.spanish = {
             navigator: {
@@ -36,10 +38,7 @@ class Languague_switch {
             game_introduccion: {
                 selector: ".game_introduccion",
                 multi: true,
-                value: [
-                    "¿Te gustaría distraerte con un juego?, te tengo varios diseñados por mí para ti, ¿te animas? Al darle jugar puede salir cualquier cosa.",
-                    "Jugar"
-                ]
+                value: [] // se introduce luego
             },
             my_projects: {
                 selector: ".my_projects_to_show",
@@ -88,10 +87,7 @@ class Languague_switch {
             game_introduccion: {
                 selector: ".game_introduccion",
                 multi: true,
-                value: [
-                    "Would you like to try a game?, I have several games created from me to you, what do you say? Click on begin and be prepare for anything.",
-                    "Begin"
-                ]
+                value: [] // se introduce luego
             },
             my_projects: {
                 selector: ".my_projects_to_show",
@@ -110,17 +106,22 @@ class Languague_switch {
     }
 
     englishSelected(was) {
+        this.englishIsOn = was;
         if (was) this.currentLanguague = this.english;
         else this.currentLanguague = this.spanish;
 
         this.my_projects.englishSelected(was);
+        this.my_games.englishSelected(was);
         this.currentLanguague.my_projects.value = this.my_projects.showShortDescription();
-        this.setLanguague();
+        this.currentLanguague.game_introduccion.value = [
+            this.my_games.currentLanguague.title,
+            this.my_games.currentLanguague.button
+        ];
+        this.setLanguagues();
     }
 
-    setLanguague() {
-        let parts = Object.keys(this.currentLanguague);
-        parts.forEach(pr => {
+    setLanguagues() {
+        Object.keys(this.currentLanguague).forEach(pr => {
             if (this.currentLanguague[pr].multi) {
                 considera(this.currentLanguague[pr].selector, 0).forEach((ele, i) => {
                     ele.f("innerText", this.currentLanguague[pr].value[i]);
@@ -128,5 +129,29 @@ class Languague_switch {
             }
             else considera(this.currentLanguague[pr].selector).f("innerText", this.currentLanguague[pr].value);
         });
+    }
+
+    typed(text, fun, fun_closer) {
+        clearInterval(this.inter);
+        let characters = text.split("");
+        
+        this.inter = setInterval(() => {
+            if (characters.length) fun(characters.splice(0, 1));
+            else closeInter();
+        }, 60);
+
+        const closeInter = () => {
+            clearInterval(this.inter);
+            fun_closer();
+        }
+    }
+
+    getSortGame() {
+        return {
+            button: (this.englishIsOn) ? "Go" : "Ir",
+            game: this.my_games.currentLanguague.games[
+                Math.floor(Math.random() * this.my_games.currentLanguague.games.length)
+            ]
+        }
     }
 }

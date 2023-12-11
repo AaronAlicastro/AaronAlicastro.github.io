@@ -109,7 +109,7 @@
     font-size: var(--sub_title);
     margin-top: var(--small_space);
     cursor: pointer;
-    border-bottom: .1px solid var(--low_emphasis);
+    border-bottom: .1px solid var(--gray);
     display: inline-block;
     width: fit-content;
     color: var(--emphasis);
