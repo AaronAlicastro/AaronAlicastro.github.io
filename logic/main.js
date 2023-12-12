@@ -85,7 +85,7 @@ english_switch_container.f("event", "click", () => {
 
 // ocultar nav_float al dirigirse al dar clic en los enlaces
 aplicarPara(considera(".navigation_titles", 0), "event", "click", () => {
-    if (container_proyect_description.e.offsetWidth < 1000) closeContainer_float_nav();
+    if (body.e.offsetWidth < 1000) closeContainer_float_nav();
 });
 
 // funcion para los botones 'ver mas' en los proyectos
@@ -124,7 +124,7 @@ aplicarPara(considera(".button_view_project", 0), "event", "click", e => {
 });
 // boton de cerrar proyectos
 nav_container_info[0].f("event", "click", () => {
-    if (container_proyect_description.e.offsetWidth > 1000) container_float_nav.f("display", "block");
+    if (body.e.offsetWidth > 1000) container_float_nav.f("display", "block");
     project_description.f("add-class", "close_cortina_class");
     container_contact.f("display", "flex");
     footer_scroll_hidden.f("rm-class", "small_footer");
