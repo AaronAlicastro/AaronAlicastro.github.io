@@ -19,9 +19,9 @@ class My_projects {
                 }
             },
             {
-                title: "MCG Soluciones",
+                title: "CMG Soluciones",
                 short_description: "Si necesitas cualquier servicio relacionado con GLP, entra y mira",
-                long_description: "MCG soluciones es una empresa que invierte en la renovación, cree fielmente que el GLP es una de las energías más limpias del planeta y, es por ello, que se encarga garantizar la distribución y el traslado de este maravilloso producto para el mundo. <br /> <br /> Consulta sus servicios si presentas cualquier necesidad relacionada.",
+                long_description: "CMG soluciones es una empresa que invierte en la renovación, cree fielmente que el GLP es una de las energías más limpias del planeta y, es por ello, que se encarga garantizar la distribución y el traslado de este maravilloso producto para el mundo. <br /> <br /> Consulta sus servicios si presentas cualquier necesidad relacionada.",
                 first_button: {
                     enable: true,
                     tag: "Ver página",
@@ -97,7 +97,7 @@ class My_projects {
         this.english = [
             {
                 title: "Sell Yard",
-                short_description: "This proyect is focused on design where I create a store aesthetics using an API",
+                short_description: "This project is focused on design where I create a store aesthetics using an API",
                 long_description: "I began this proyect following a Platzi course. All design was created in class and the final goal was to create a React app with it. <br /> <br /> I took the time to create it bymyself without watching the React course, and as a filled I used the API '" + PAGE_VARIABLES.proyect_data.api_sellyard_link + "'. <br /> <br /> You can watch the final result of this project!",
                 first_button: {
                     enable: true,
@@ -111,9 +111,9 @@ class My_projects {
                 }
             },
             {
-                title: "MCG Soluciones",
+                title: "CMG Soluciones",
                 short_description: "If you need any service about GLP, go in and look",
-                long_description: "MCG soluciones is a company that invests in renovation, it is confident that GLP is one of the cleanest energy of the planet and, for that reazon, it is responsible for guaranteeing the distribution and transfer of this wonderful product to the world. <br /> <br /> Check its services if you have any need about it.",
+                long_description: "CMG soluciones is a company that invests in renovation, it is confident that GLP is one of the cleanest energy of the planet and, for that reazon, it is responsible for guaranteeing the distribution and transfer of this wonderful product to the world. <br /> <br /> Check its services if you have any need about it.",
                 first_button: {
                     enable: true,
                     tag: "Page",
@@ -199,7 +199,7 @@ class My_projects {
         this.currentLanguague.forEach(py => {
             res.push(py.title);
             res.push(py.short_description);
-            if (this.englishIsOn) res.push("Watch more");
+            if (this.englishIsOn) res.push("See more");
             else res.push("Ver más");
         });
         return res;

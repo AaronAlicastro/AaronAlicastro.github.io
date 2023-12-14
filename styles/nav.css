@@ -95,6 +95,9 @@
     display: flex;
     justify-content: start;
     align-items: center;
+    -webkit-box-shadow: inset -3px 4px 22px 0px rgba(154, 159, 168, 0.19);
+    -moz-box-shadow: inset -3px 4px 22px 0px rgba(154, 159, 168, 0.19);
+    box-shadow: inset -3px 4px 22px 0px rgba(154, 159, 168, 0.19);
 }
 
 #english_switch_ball {

@@ -36,6 +36,25 @@ const proyect_card_structure = (proyect_id) => {
 
     return div_project_cards;
 };
+
+const project_game_card_structure = () => {
+    let div_game_card = document.createElement("DIV");
+    div_game_card.classList.add("project_cards");
+
+    let p_my_games_to_show = document.createElement("P");
+    p_my_games_to_show.classList.add("game_introduccion");
+
+    let a_games_to_show = document.createElement("A");
+    a_games_to_show.target = "_blank";
+    a_games_to_show.classList.add("general_button_second");
+    a_games_to_show.classList.add("game_introduccion");
+
+    div_game_card.appendChild(p_my_games_to_show);
+    div_game_card.appendChild(a_games_to_show);
+
+    return div_game_card;
+};
+
 const span_reject_current_game = (english, fun) => {
     let span_game = document.createElement("SPAN");
 

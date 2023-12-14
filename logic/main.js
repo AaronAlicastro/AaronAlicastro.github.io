@@ -6,6 +6,7 @@ let fragment = document.createDocumentFragment();
 for (let i = 0; i < languague_switch.my_projects.spanish.length; i++) {
     fragment.appendChild(proyect_card_structure(i));
 }
+fragment.appendChild(project_game_card_structure());
 considera("#container_proyects").f("apend", fragment);
 
 languague_switch.englishSelected(false); // first set languague
@@ -59,7 +60,7 @@ menu_bar_icon.f("event", "click", () => {
 const closeContainer_float_nav = () => {
     container_float_nav.f("rm-class", "class_open_nav_mobile");
     container_float_nav.f("add-class", "class_close_nav_mobile");
-    setTimeout(() => container_float_nav.f("display", "none"), 1200);
+    // setTimeout(() => container_float_nav.f("display", "none"), 1200);/
 }
 nav_container_info[1].f("event", "click", closeContainer_float_nav);
 

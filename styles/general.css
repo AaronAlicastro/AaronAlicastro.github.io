@@ -59,8 +59,11 @@ a {
         --small_space: 8px;
     }
 
-    #navigation_manch,
-    #container_float_nav {
+    body {
+        margin-top: 60px !important;
+    }
+
+    #navigation_manch {
         display: none;
     }
 
@@ -70,15 +73,33 @@ a {
         background: var(--develop);
         width: 100vw !important;
         height: 100vh !important;
+        left: -100vw;
     }
 
     #container_float_nav .nav_container_info {
         display: block;
+        margin-top: 60px;
     }
 
     #navigation {
         align-items: center;
         margin-left: 0 !important;
+    }
+
+    /* english_switch_container */
+    #english_switch_container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw !important;
+        justify-content: center !important;
+        padding: var(--general) 0;
+        background: var(--white);
+        border-bottom: .2px solid var(--develop);
+    }
+
+    #english_switch_container_ball {
+        background: var(--white) !important;
     }
 
     /* burger icon */
