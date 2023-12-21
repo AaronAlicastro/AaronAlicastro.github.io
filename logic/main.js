@@ -95,7 +95,6 @@ aplicarPara(considera(".button_view_project", 0), "event", "click", e => {
     project_description.f("rm-class", "close_cortina_class");
     container_proyect_description.f("display", "block");
     container_proyect_description.f("add-class", "open_cortina_class");
-    container_float_nav.f("display", "none");
     container_contact.f("display", "none");
     footer_scroll_hidden.f("add-class", "small_footer");
     nav_container_info[0].f("display", "block");
