@@ -1,57 +1,119 @@
 <!DOCTYPE html>
-  <html>
-    <head>
-        <title>La Vieja</title>
-        <meta charset="utf-8">
-        <link rel="stylesheet" href="./editor.css">
-    </head>
+<html>
 
-    <body>
+<head>
+    <title>La Vieja</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="./editor.css" />
+
+    <script src="../../logic/rememberE.js"></script>
+    <script src="./logic/fichas.js"></script>
+    <script src="./logic/cells.js"></script>
+    <script src="./logic/players.js"></script>
+</head>
+
+<body>
+    <div id="bienvenida_container">
         <div id="bienvenida">
-            <h1> Bienvenidos sean al juego </h1>
-            <input type="text" value="" id="jugador1" class="jugador" placeholder="Nombre jugador uno"/>
-            <input type="text" value="" id="jugador2" class="jugador" placeholder="Nombre jugador dos"/>
-            <button class="jugador" id="comenzar"> Jugar </button>
-        </div>
-        <div id="juego">
-            <h1 id="turno"> Turno de </h1>
-            <h2 id="info"> toca (X) </h2>
-            <div id="contenedorGrid">
-                <div class="casillas">
-                    <div id="conImage1" class="conImage"> <img src="https://drive.google.com/uc?export=view&id=1QaWm0gIM-snXHucFfEKY2lVj_or5jo-n"/> </div>
-                </div>
-                <div class="casillas">
-                    <div id="conImage2" class="conImage"> <img src="https://drive.google.com/uc?export=view&id=1QaWm0gIM-snXHucFfEKY2lVj_or5jo-n"/> </div>
-                </div>
-                <div class="casillas">
-                    <div id="conImage3" class="conImage"> <img src="https://drive.google.com/uc?export=view&id=1QaWm0gIM-snXHucFfEKY2lVj_or5jo-n"/> </div>
-                </div>
-                <div class="casillas">
-                    <div id="conImage4" class="conImage"> <img src="https://drive.google.com/uc?export=view&id=1QaWm0gIM-snXHucFfEKY2lVj_or5jo-n"/> </div>
-                </div>
-                <div class="casillas">
-                    <div id="conImage5" class="conImage"> <img src="https://drive.google.com/uc?export=view&id=1QaWm0gIM-snXHucFfEKY2lVj_or5jo-n"/> </div>
-                </div>
-                <div class="casillas">
-                    <div id="conImage6" class="conImage"> <img src="https://drive.google.com/uc?export=view&id=1QaWm0gIM-snXHucFfEKY2lVj_or5jo-n"/> </div>
-                </div>
-                <div class="casillas">
-                    <div id="conImage7" class="conImage"> <img src="https://drive.google.com/uc?export=view&id=1QaWm0gIM-snXHucFfEKY2lVj_or5jo-n"/> </div>
-                </div>
-                <div class="casillas">
-                    <div id="conImage8" class="conImage"> <img src="https://drive.google.com/uc?export=view&id=1QaWm0gIM-snXHucFfEKY2lVj_or5jo-n"/> </div>
-                </div>
-                <div class="casillas">
-                    <div id="conImage9" class="conImage"> <img src="https://drive.google.com/uc?export=view&id=1QaWm0gIM-snXHucFfEKY2lVj_or5jo-n"/> </div>
-                </div>
-            </div>
-            <div id="des">
-                <h5 id="puntaje1"> puntaje de </h5>
-                <h5 id="puntaje2"> puntaje de </h5>
-            </div>
-            <div id="conFinalizar"><button id="finalizar"> finalizar juego </button></div>
+            <h1> Bienvenidos </h1>
+
+            <label class="label_container_inputs">
+                <input class="input_players" />
+                <span class="input_players_spans">Juador 1</span>
+            </label>
+
+            <label class="label_container_inputs">
+                <input class="input_players" />
+                <span class="input_players_spans">Juador 2</span>
+            </label>
+
+            <button id="btn_welcome_start" class="first_button"> Jugar </button>
+            <a href="#howToPlay_container">¿Cómo jugar?</a>
         </div>
 
-        <script src="./funcion.js"></script>
-    </body>
-  </html>
+        <div id="howToPlay_container">
+            <h2>¿Cómo jugar?</h2>
+            <div>
+                En un tablero de 8 x 5, la meta del juego es eliminar la ficha <span class="howtopay_resaltar">+</span>
+                del contrincante. <br /><br />
+
+                Cada jugador podrá contar con las fichas
+                <span class="howtopay_resaltar putCode"></span>,
+                <span class="howtopay_resaltar">@</span>,
+                <span class="howtopay_resaltar">&</span>,
+                Con las que debería realizar tal tarea. <br /><br />
+
+                Por parte de la dinámica del juego, es simple, en cada turno, el jugador podrá elegir si
+                mover o colocar una ficha; si decide colocar una ficha, le dará al boton de 'tirar', el cual
+                seleccionará una de las tres fichas antes expuestas, luego decidir en qué casilla colocarla.
+                Dicha casilla debe ser la primera fila desde superspectiva, no se puede otra. <br /><br />
+
+                Si decide mover una ficha, deberá seleccionar una y moverla una casilla a cualquier
+                dirección (todas las fichas pueden moverse). Y de esta manera los turnos se irán alternando.
+                <br /><br />
+
+                Para eliminar una ficha del contrincante, lo que se debe hacer es ocupar el lugar de dicha ficha.
+                La ficha será eliminada si se cumplen las siguientes condiciones:
+                <ul>
+                    <li>La ficha que elimina puede eliminar</li>
+                    <li>La ficha a eliminar no tiene resistencia</li>
+                </ul>
+                <br />
+
+                Información de cada ficha:
+                <ul>
+                    <span class="howtopay_resaltar putCode"><></span>:
+                    <li>Puede eliminar</li>
+                    <li>No tiene resistencia</li> <br />
+
+                    <span class="howtopay_resaltar">@</span>:
+                    <li>Puede eliminar</li>
+                    <li>Tiene resistencia</li>
+                    <li>
+                        Cuando pierde la resistencia se trasforma en <span class="howtopay_resaltar">O</span> Y pierde
+                        la propiedad de eliminar
+                    </li> <br />
+
+                    <span class="howtopay_resaltar">&</span>
+                    <li>No puede atacar</li>
+                    <li>Tiene resistencia</li>
+                    <li>Cuando pierde la resistencia se trasforma en <span class="howtopay_resaltar">Y</span></li>
+                    <br />
+
+                    <span class="howtopay_resaltar">+</span>
+                    <li>No puede atacar</li>
+                    <li>No tiene resistencia</li>
+                    <li>Si es eliminada, el jugador en cuestión pierde el juego</li> <br />
+                </ul>
+
+                La resistencia a una ficha se quita, al intentar ocupar su lugar. <br />
+                Un jugador puede ganar el juego, si ocupa un total de 25 casillas.
+            </div>
+        </div>
+    </div>
+
+
+    <div id="juego">
+        <div class="row_around">
+            <span id="player_switcher" class="sub_title">Truno del jugador </span>
+            <button id="select_ficha" class="second_button">Tirar</button>
+        </div>
+
+        <div id="container_fieldGame">
+            <div class="columnInfoPlayers">0</div>
+
+            <div id="filedGame">
+                <!-- 
+                    celdas
+                 -->
+            </div>
+
+            <div class="columnInfoPlayers">0</div>
+        </div>
+    </div>
+
+    <script src="./logic/funcion.js"></script>
+    <script src="./logic/getNames.js"></script>
+</body>
+
+</html>

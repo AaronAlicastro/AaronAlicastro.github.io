@@ -1,108 +1,233 @@
-*{
-  font-size: 10px;
-  font-family: cursive;
-  background: #000aaa;
-  color: #fff; font-size: 15px;
+:root {
+    /* colors */
+    --none_back: #fff;
+    --general_back: #f6fbffea;
+    --principal_back: #f3fcffea;
+    --unique: rgb(89, 156, 255);
+    --principal_font: #000;
+    --shadow: #d1d1d1dc;
+
+    /* game colors */
+    --player_one: rgb(44, 255, 107);
+    --player_one_shadow: rgba(179, 255, 202, 0.911);
+    --player_two: rgb(255, 160, 35);
+    --player_two_shadow: rgba(255, 213, 158, 0.932);
+
+    /* spaces */
+    --general_space: 20px;
+    --middle_space: 12px;
+    --small_space: 5px;
+
+    /* font sizes */
+    --title: 48px;
+    --sub_title: 38px;
+    --des: 20px;
+    --normal: 16px;
+
+    /* sizes */
+    --game_height: 80vh;
 }
 
-#juego{
-    display: none;
-    background: #000888; flex-direction: column;
-    width: 50%; height: fit-content;
-    margin: auto; border-radius: 30px;
-    position: relative;
-    top: 3em; padding: 20px;
+/* general styles */
+* {
+    margin: 0;
+    padding: 0;
+    font-family: cursive;
+    scroll-behavior: smooth;
 }
 
-#bienvenida{
-    display: flex; flex-direction: column;
-    background: #000888; justify-content: center;
-    width: 50%; height: 500px;
-    margin: auto; border-radius: 5px;
-    position: relative;
-    top: 10em; padding: 10px;
-}#bienvenida:hover{
-    outline: 5px solid #000888; border-radius: 18px;
+body {
+    background: var(--general_back);
+    color: var(--principal_font);
 }
 
-.jugador{
-    border-style: none; outline: none;
-    border: none; margin: 8px; text-align: center;
-    border-bottom: 1px solid green;
-    background: #050; font-size: 20px;
-    font-family: Times New Roman;
-    height: 80px; border-radius: 12px;
-}#bienvenida button:focus{
-    outline: 2px solid #fff;
+.row_around {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
 }
 
-h1{
-    background: #000888;
-    text-align: center;
-    font-size: 40px;
-}
-h2{
-    background: #000888;
-    text-align: center;
-    font-size: 20px;
-}
-
-
-input::placeholder{
-    color: #aaafff; text-align: center;
-}
-input:focus{
-    box-shadow: 5px 5px 5px 1px #22b122;
-    border-bottom: 1px solid #007700;
-    transition: border-bottom 0.8s, box-shadow 5s;
+/* buttos */
+.first_button {
+    background: var(--none_back);
+    border: none;
+    padding: var(--middle_space) calc(var(--general_space) * 2);
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: var(--des);
 }
 
-#turno{
-    background: #000888;
-    padding-top: 8px;
-    text-align: center;
+.second_button {
+    background: var(--unique);
+    border: none;
+    padding: var(--middle_space) calc(var(--general_space) * 2);
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: var(--des);
 }
 
-#contenedorGrid{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 180px 180px 180px;
+/* welcome page */
+#bienvenida_container {
+    height: fit-content;
+    min-height: 100vh;
+}
+
+#bienvenida {
+    display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
+    row-gap: calc(var(--general_space) * 2);
+    background: var(--principal_back);
+    width: 100vw;
+    max-width: 600px;
+    height: 100vh;
+    margin: 0 auto;
+    -webkit-box-shadow: inset -1px -3px 34px -2px rgba(170, 170, 170, 0.23);
+    -moz-box-shadow: inset -1px -3px 34px -2px rgba(170, 170, 170, 0.23);
+    box-shadow: inset -1px -3px 34px -2px rgba(170, 170, 170, 0.23);
 }
 
-.casillas{
-    display: flex; justify-content: center;
-    background: #009100; box-sizing: border-box;
-    border: 1px solid #000888;
-    padding: 30px;
+#bienvenida h1 {
+    font-size: var(--title);
 }
 
-.conImage{
-    display: flex; justify-content: center;
-    width: 100%; height: 100%;
-    object-fit: contain; background: none;
+.label_container_inputs {
+    width: 60%;
+    height: 40px;
+    display: flex;
+    position: relative;
+}
+
+.input_players_spans {
+    position: absolute;
+    left: var(--general_space);
+    top: 25%;
+}
+
+.input_players {
+    flex-grow: 1;
+    font-size: var(--normal);
+    border: none;
+    outline: none;
+    padding-left: var(--general_space);
+    box-sizing: border-box;
+    border-top: .1px solid var(--player_one);
+}
+
+.input_players:focus + .input_players_spans {
+    animation: move_span_input_player .5s forwards;
+}
+
+.label_container_inputs:nth-child(3) .input_players {
+    border-top: .1px solid var(--player_two);
+}
+
+.input_players_focus_span {
+    animation: move_span_input_player .5s forwards;
+}
+
+@keyframes move_span_input_player {
+    from {
+        left: var(--general_space);
+        top: 25%;
+    }
+
+    to {
+        left: 0;
+        top: -55%;
+    }
+}
+
+#bienvenida a {
+    color: var(--principal_font);
+}
+
+/* howToPlay_container */
+#howToPlay_container {
+    height: fit-content;
+    min-height: 100vh;
+    padding: var(--general_space);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: var(--general_space);
+}
+
+#howToPlay_container h2 {
+    font-size: var(--sub_title);
+}
+
+#howToPlay_container>div {
+    font-size: var(--normal);
+    width: 100%;
+    max-width: 600px;
+    line-height: 25px;
+    text-align: left;
+    margin-bottom: calc(var(--general_space) * 2);
+}
+
+.howtopay_resaltar {
+    font-size: var(--des);
+    color: var(--player_one);
+    margin: 0 var(--general_space);
+}
+
+
+/* game view */
+#juego {
+    display: none;
+    padding: var(--general_space);
     box-sizing: border-box;
 }
-img{
-    width: 80%; height: 100%;
+
+#container_fieldGame {
+    display: flex;
+    height: var(--game_height);
+    column-gap: var(--general_space);
 }
 
-#des{
-    display: flex; flex-direction: row;
-    background: none; justify-content: space-around;
-}#des h5{
-    border: none; font-size: 17px;
-    border-bottom: 1px solid green;
-    background: none;
+.columnInfoPlayers {
+    width: 50px;
+    height: var(--game_height);
+    background: var(--player_one);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: var(--sub_title);
 }
-#conFinalizar{
-    display: flex; flex-direction: row;
-    justify-content: center; background: none;
+
+.columnInfoPlayers:nth-child(3) {
+    background: var(--player_two);
 }
-#finalizar{
-    background: #090; outline: none;
-    border: 1px solid #fff; padding: 10px;
-}#finalizar:hover{
-    outline: 2.5px solid #090;
-    font-size: 20px;
+
+#filedGame {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    flex-grow: 1;
+    height: var(--game_height);
+    margin-top: var(--general_space);
+    gap: var(--small_space);
+}
+
+.filedGame_cells {
+    background: var(--none_back);
+    cursor: pointer;
+    border-radius: 5px;
+    outline: .1px solid var(--shadow);
+    -webkit-box-shadow: inset -1px -3px 34px -2px rgba(170, 170, 170, 0.23);
+    -moz-box-shadow: inset -1px -3px 34px -2px rgba(170, 170, 170, 0.23);
+    box-shadow: inset -1px -3px 34px -2px rgba(170, 170, 170, 0.23);
+    display: grid;
+    place-items: center;
+    font-size: var(--title);
+}
+
+@media (max-width: 800px) {
+    #container_fieldGame {
+        background: red;
+    }
 }
