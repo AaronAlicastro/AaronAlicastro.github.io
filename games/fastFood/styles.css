@@ -1,0 +1,199 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-size: 40px;
+}
+
+body {
+    position: relative;
+}
+
+button {
+    font-size: 50px;
+    padding: 8px 20px;
+    border-radius: 4px;
+}
+
+form {
+    font-size: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 40px;
+}
+
+form label {
+    display: flex;
+    flex-direction: column;
+    width: 80vw;
+    row-gap: 5px;
+}
+
+form input {
+    height: 40px;
+    border: none;
+    outline: none;
+    font-size: 40px;
+    border-bottom: 1px solid #000;
+}
+
+#cartaRegister {
+    padding: 80px 0;
+    height: 100vh;
+    overflow-y: auto;
+}
+
+#ventaRegister {
+    padding: 80px 0;
+    height: 30vh;
+    overflow-y: auto;
+}
+
+.cartaWithItemsLabel {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cartaWithItemsLabel input {
+    border: none;
+    width: 70px;
+    text-align: center;
+}
+
+.cartaWithItemsLabel span:nth-child(3),
+.cartaWithItemsLabel span:nth-child(4) {
+    border: 1px solid #000;
+    padding: 20px 30px;
+}
+
+#itemsContainer,
+#cartaContainer,
+#ventaContainer,
+#reporteContainer,
+#floatBottomRight,
+#clearAll_btn,
+#floatButton {
+    display: none;
+}
+
+#floatButton {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+}
+
+#clearAll_btn {
+    position: absolute;
+    left: 0;
+    top: 100px;
+}
+
+#floatBottomRight {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+}
+
+.panel {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 35px;
+}
+
+#innitialContainer {
+    display: flex;
+    row-gap: 30px;
+}
+
+.sideBar {
+    position: absolute;
+    height: 100vh;
+    width: 85vw;
+    left: -85vw;
+    background: #fff;
+}
+
+.sideBar button {
+    position: absolute;
+    right: -10vw;
+    top: 20vh;
+}
+
+.sideBar_content {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 20px;
+    overflow-y: auto;
+}
+
+.sideBar_content label {
+    padding: 8px 20px;
+    border: 1px solid #000;
+}
+
+#reporteContainer_items {
+    height: 50vh;
+    overflow-y: auto;
+    padding: 80px 0;
+}
+
+#reporteContainer_items li:nth-child(1) {
+    font-size: 80px;
+    font-weight: bold;
+}
+
+#reporteContainer_grid {
+    height: 50vh;
+    width: 100vw;
+    overflow-y: auto;
+    padding-bottom: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    row-gap: 50px;
+    overflow-y: auto;
+}
+
+#reporteContainer_grid div {
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: inset 0px 0px 42px 21px rgba(150, 150, 150, 0.6);
+    -webkit-box-shadow: inset 0px 0px 42px 21px rgba(150, 150, 150, 0.6);
+    min-height: 200px;
+    width: 60vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* animations */
+
+@keyframes openSideBar {
+    from {
+        left: -85vw;
+    }
+
+    to {
+        left: 0;
+    }
+}
+
+@keyframes closeSideBar {
+    from {
+        left: 0;
+    }
+
+    to {
+        left: -85vw;
+    }
+}

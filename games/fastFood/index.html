@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Fast Food</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="./styles.css" />
+
+    <script src="./getFormData.js"></script>
+    <script src="./generalFunctions.js"></script>
+  </head>
+
+  <body>
+    <button id="floatButton">Inicio</button>
+    <button id="clearAll_btn">Borrar Ventas</button>
+
+    <div id="innitialContainer" class="panel">
+      <button class="innitialContainer_btn">Venta</button>
+      <button class="innitialContainer_btn">Items</button>
+      <button class="innitialContainer_btn">Carta</button>
+      <button class="innitialContainer_btn">Reporte</button>
+    </div>
+
+    <div id="itemsContainer" class="panel">
+      <div name="opened" id="itemsContainer_sideBar" class="sideBar">
+        <button id="itemsContainer_sideBar_btn">@</button>
+        <div id="itemsContainer_sideBar_content" class="sideBar_content"></div>
+      </div>
+
+      <form id="itemsRegister">
+        <label> Nombre <input name="itemName" type="text" /> </label>
+        <button id="itemsRegister_btn">Guardar</button>
+      </form>
+    </div>
+
+    <div id="cartaContainer" class="panel">
+      <div name="opened" id="cartaContainer_sideBar" class="sideBar">
+        <button id="cartaContainer_sideBar_btn">@</button>
+        <div id="cartaContainer_sideBar_content" class="sideBar_content"></div>
+      </div>
+
+      <form id="cartaRegister">
+        <label>
+          Nombre
+          <input class="cartaRegister_inputs" name="cartaName" type="text" />
+        </label>
+        <label>
+          Precio
+          <input class="cartaRegister_inputs" name="cartaPrice" type="number" />
+        </label>
+        <label>
+          Categoria
+          <input class="cartaRegister_inputs" name="cartaTag" type="text" />
+        </label>
+        <button id="cartaRegister_btn">Guardar</button>
+      </form>
+    </div>
+
+    <div id="ventaContainer" class="panel">
+      <form id="ventaRegister"></form>
+      <ul id="ventaContainer_list"></ul>
+    </div>
+
+    <div id="reporteContainer" class="panel">
+      <ul id="reporteContainer_items"></ul>
+      <div id="reporteContainer_grid"></div>
+    </div>
+
+    <button id="floatBottomRight">Registrar</button>
+  </body>
+
+  <script src="./itemsContainer.js"></script>
+  <script src="./cartaContainer.js"></script>
+  <script src="./ventaContainer.js"></script>
+  <script src="./reporteContainer.js"></script>
+  <script src="./funcion.js"></script>
+</html>
